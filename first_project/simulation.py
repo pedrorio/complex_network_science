@@ -53,16 +53,58 @@ def simulation(
     return degree_distribution(graphs)
 
 
-number_of_simulations = range(10, 101)[-1]
-number_of_initial_nodes = range(500, 5000, 500)[0]
-probability_of_rewiring_each_node = np.arange(0.05, 1.0, 0.05)[0]
+# number_of_simulations = range(10, 101)[-1]
+# number_of_initial_nodes = range(500, 5000, 500)[0]
+# probability_of_rewiring_each_node = np.arange(0.05, 1.0, 0.05)[0]
 
-count = simulation(number_of_simulations, number_of_initial_nodes, probability_of_rewiring_each_node)
+# count = simulation(number_of_simulations, number_of_initial_nodes, probability_of_rewiring_each_node)
 
-degrees = [index for index, value in enumerate(count)]
-plt.scatter(degrees, count, label=f'{number_of_simulations} runs')
+# understand the effect of the number of simulations
+# ==================================================
+number_of_simulation_runs = [10, 100, 1000]
+number_of_initial_nodes = 100
+probability_of_rewiring_each_node = 0.01
+for number_of_simulations in number_of_simulation_runs:
+    count = simulation(number_of_simulations, number_of_initial_nodes, probability_of_rewiring_each_node)
+    degrees = [index for index, value in enumerate(count)]
+    plt.scatter(degrees, count, label=f'{number_of_simulations} runs')
+
+# degrees = [index for index, value in enumerate(count)]
+# plt.scatter(degrees, count, label=f'{number_of_simulations} runs')
 plt.legend(loc='upper left')
-plt.show()
+plt.savefig('number_of_simulation_runs.png')
+# plt.show()
+plt.clf()
+
+# understand the effect of the number of initial nodes
+# ====================================================
+number_of_simulation_runs = 100
+number_of_initial_nodes = [10, 100, 1000]
+probability_of_rewiring_each_node = 0.01
+for number_of_nodes in number_of_initial_nodes:
+    count = simulation(number_of_simulation_runs, number_of_nodes, probability_of_rewiring_each_node)
+    degrees = [index for index, value in enumerate(count)]
+    plt.scatter(degrees, count, label=f'{number_of_nodes} initial nodes')
+
+plt.legend(loc='upper left')
+plt.savefig('number_of_initial_nodes.png')
+# plt.show()
+plt.clf()
+
+# understand the effect of the probability of rewiring each node
+# ==============================================================
+number_of_simulation_runs = 100
+number_of_initial_nodes = 100
+probability_of_rewiring_each_node = [0.05, 0.5, 1]
+for probability in probability_of_rewiring_each_node:
+    count = simulation(number_of_simulation_runs, number_of_initial_nodes, probability)
+    degrees = [index for index, value in enumerate(count)]
+    plt.scatter(degrees, count, label=f'P[rewiring each node] = {probability*100}%')
+
+plt.legend(loc='upper left')
+plt.savefig('probability_of_rewiring_each_node.png')
+# plt.show()
+plt.clf()
 
 # fig = plt.figure()
 # ax1 = fig.add_subplot(111)
