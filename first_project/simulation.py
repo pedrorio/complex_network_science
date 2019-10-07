@@ -1,12 +1,14 @@
 import networkx as nx
 import numpy as np
+import matplotlib.pyplot as plt
+
+seed_number = 356
 
 
-def graph_simulation(graph_list):
-
+def degree_distribution(graphs):
     final_degree_count = np.zeros([0])
 
-    for graph in graph_list:
+    for graph in graphs:
 
         degree_count = np.asarray(nx.degree_histogram(graph))
 
@@ -22,38 +24,53 @@ def graph_simulation(graph_list):
 
         final_degree_count = np.add(final_degree_count, degree_count)
 
-    final_degree_count = final_degree_count / len(graph_list)
+    final_degree_count = final_degree_count / len(graphs)
+    print(final_degree_count)
 
     return final_degree_count
 
 
-def simulation_per_simulation_number(
-        simulation_numbers,
-        initial_nodes_numbers,
-        probabilities_of_rewiring_each_node
+def simulation(
+        number_of_simulations,
+        number_of_initial_nodes,
+        probability_of_rewiring_each_node
 ):
-    graphs_per_simulation_number = []
-    # graphs_per_initial_node_number = []
-    # graphs_per_probability_of_rewiring_each_node = []
+    graphs = []
 
-    for simulation_number in simulation_numbers:
-        probability_of_rewiring_each_node = probabilities_of_rewiring_each_node[1]
-        initial_nodes_number = initial_nodes_numbers[-1]
-
-        # for initial_nodes_number in initial_nodes_numbers:
+    # generate a graph n times
+    for simulation_number in range(number_of_simulations):
+        # for number_of_initial_nodes in initial_nodes_numbers:
         # for probability_of_rewiring_each_node in probabilities_of_rewiring_each_node:
         erdos_renyi = nx.erdos_renyi_graph(
-            initial_nodes_number,
-            probability_of_rewiring_each_node
+            number_of_initial_nodes,
+            probability_of_rewiring_each_node,
+            seed_number
         )
 
-        graphs_per_simulation_number.append(erdos_renyi)
+        graphs.append(erdos_renyi)
 
-    graph_simulation(graphs_per_simulation_number)
+    # compute the degree distribution for all the graphs
+    return degree_distribution(graphs)
 
 
-simulation_numbers = range(10, 100)
-initial_nodes_numbers = range(500, 5000, 500)
-probabilities_of_rewiring_each_node = np.arange(0.05, 1.0, 0.05)
+number_of_simulations = range(10, 101)[-1]
+number_of_initial_nodes = range(500, 5000, 500)[0]
+probability_of_rewiring_each_node = np.arange(0.05, 1.0, 0.05)[0]
 
-simulation_per_simulation_number(simulation_numbers, initial_nodes_numbers, probabilities_of_rewiring_each_node)
+count = simulation(number_of_simulations, number_of_initial_nodes, probability_of_rewiring_each_node)
+
+degrees = [index for index, value in enumerate(count)]
+plt.scatter(degrees, count, label=f'{number_of_simulations} runs')
+plt.legend(loc='upper left')
+plt.show()
+
+# fig = plt.figure()
+# ax1 = fig.add_subplot(111)
+# ax1.scatter(degrees, count, s=10, c='b', marker="s", label='first')
+# ax1.scatter(degrees, count, s=10, c='r', marker="o", label='second')
+# plt.legend(loc='upper left');
+# plt.show()
+
+# for a list of number of simulations
+# for a list of initial node numbers
+# for a list
