@@ -4,7 +4,8 @@ import numpy as np
 
 class Model:
     """
-    Groups several functions to be used with several models.
+    Groups several functions (degree_distribution, clustering_coefficient_mean
+    and average_path_length) to be used with several models.
     """
 
     def __init__(self, graphs):
