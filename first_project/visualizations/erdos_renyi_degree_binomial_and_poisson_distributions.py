@@ -12,38 +12,24 @@ class ErdosRenyiDegreeBinomialAndPoissonDistributions:
     """
 
     def __init__(self):
-        self.number_of_simulations = 20
-        self.number_of_simulations = 10
-
-        self.rewiring_probability = 0.4
+        self.number_of_simulations = 50
+        # self.number_of_simulations = 1
 
         self.low_number_of_initial_nodes = 100
         self.high_number_of_initial_nodes = 10000
 
-        self.fig, self.axes = self.setup_figure()
+        self.rewiring_probability = 0.4
+        self.rewiring_probability_with_low_number_of_initial_nodes = 0.4
+
+        self.average_with_low_number_of_initial_nodes = \
+            (self.low_number_of_initial_nodes - 1) * self.rewiring_probability_with_low_number_of_initial_nodes
+        self.average_with_high_number_of_initial_nodes = self.average_with_low_number_of_initial_nodes
+
+        self.rewiring_probability_with_high_number_of_initial_nodes = \
+            self.average_with_low_number_of_initial_nodes / (self.high_number_of_initial_nodes - 1)
 
         self.with_low_number_of_initial_nodes()
         self.with_high_number_of_initial_nodes()
-
-        self.clean_figure()
-
-    @staticmethod
-    def setup_figure():
-        """
-        creates the subplots
-        :return:the figures and the axis
-        """
-        return plt.subplots(nrows=1, ncols=2, figsize=(20, 5))
-
-    def clean_figure(self):
-        """
-        saves the image and cleans the plots
-        """
-        self.fig.tight_layout()
-        self.axes[0].legend(loc='best', frameon=False)
-        self.axes[1].legend(loc='best', frameon=False)
-        plt.savefig('images/erdos_renyi_degree_binomial_and_poisson_distributions.png')
-        plt.clf()
 
     def with_low_number_of_initial_nodes(self):
         degree_distribution = ErdosRenyi(
@@ -51,17 +37,23 @@ class ErdosRenyiDegreeBinomialAndPoissonDistributions:
             self.rewiring_probability
         ).degree_distribution()
         degrees = list(index for index, value in enumerate(degree_distribution))
-        self.axes[0].plot(degrees, degree_distribution, '-o', linewidth=2, markersize=4)
 
-        binomial_average = self.low_number_of_initial_nodes * self.rewiring_probability
+        degrees, degree_distribution = zip(
+            *((degree, count) for degree, count in zip(degrees, degree_distribution) if
+              count != 0))
+
+        plt.plot(degrees, degree_distribution, '-o', linewidth=2, markersize=4)
+
+        binomial_average = (self.low_number_of_initial_nodes - 1) * self.rewiring_probability
         print(binomial_average)
+
         x_binom = np.arange(
-            stats.binom.ppf(0.01, self.low_number_of_initial_nodes, self.rewiring_probability),
-            stats.binom.ppf(0.99, self.low_number_of_initial_nodes, self.rewiring_probability)
+            stats.binom.ppf(0.01, self.low_number_of_initial_nodes - 1, self.rewiring_probability),
+            stats.binom.ppf(0.99, self.low_number_of_initial_nodes - 1, self.rewiring_probability)
         )
-        self.axes[0].plot(x_binom,
-                          stats.binom.pmf(x_binom, self.low_number_of_initial_nodes, self.rewiring_probability),
-                          label=f'binomial')
+        plt.plot(x_binom,
+                 stats.binom.pmf(x_binom, self.low_number_of_initial_nodes - 1, self.rewiring_probability),
+                 label=f'binomial')
 
         poisson_average = (self.low_number_of_initial_nodes - 1) * self.rewiring_probability
         print(poisson_average)
@@ -69,39 +61,99 @@ class ErdosRenyiDegreeBinomialAndPoissonDistributions:
             stats.poisson.ppf(0.01, poisson_average),
             stats.poisson.ppf(0.99, poisson_average)
         )
-        self.axes[0].plot(x_poisson, stats.poisson.pmf(x_poisson, poisson_average), label=f'poisson')
+        plt.plot(x_poisson, stats.poisson.pmf(x_poisson, poisson_average), label=f'poisson')
 
-        self.axes[0].set_xlim([25, 55])
+        plt.xlabel('Degree')
+        plt.ylabel('Probability')
+        ax = plt.gca()
+
+        values = ax.get_yticks()
+        ax.set_yticklabels(['{:,.1%}'.format(x) for x in values])
+        # ax.spines['top'].set_visible(False)
+        # ax.spines['right'].set_visible(False)
+
+        plt.text(0.01, 0.95, f'Initial nodes: {self.low_number_of_initial_nodes}',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+        plt.text(0.01, 0.9, f'Simulations: {self.number_of_simulations}',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+        plt.text(0.01, 0.85, f'Rewiring probability: {self.rewiring_probability_with_low_number_of_initial_nodes:,.1%}',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+
+        plt.legend(loc='best', frameon=False)
+        plt.tight_layout()
+        plt.savefig('images/erdos_renyi_degree_binomial_and_poisson_distributions_low_number_of_initial_nodes.png')
+        plt.clf()
 
     def with_high_number_of_initial_nodes(self):
         degree_distribution = ErdosRenyi(
             self.number_of_simulations,
             self.high_number_of_initial_nodes,
-            self.rewiring_probability
+            self.rewiring_probability_with_high_number_of_initial_nodes
         ).degree_distribution()
         degrees = list(index for index, value in enumerate(degree_distribution))
-        self.axes[1].plot(degrees, degree_distribution, '-o', linewidth=2, markersize=4)
 
-        binomial_average = self.high_number_of_initial_nodes * self.rewiring_probability
+        degrees, degree_distribution = zip(
+            *((degree, count) for degree, count in zip(degrees, degree_distribution) if
+              count != 0))
+
+        plt.plot(degrees, degree_distribution, '-o', linewidth=2, markersize=4)
+
+        binomial_average = (
+                                   self.high_number_of_initial_nodes - 1) * self.rewiring_probability_with_high_number_of_initial_nodes
         print(binomial_average)
         x_binom = np.arange(
-            stats.binom.ppf(0.01, self.high_number_of_initial_nodes, self.rewiring_probability),
-            stats.binom.ppf(0.99, self.high_number_of_initial_nodes, self.rewiring_probability)
+            stats.binom.ppf(0.01, self.high_number_of_initial_nodes - 1,
+                            self.rewiring_probability_with_high_number_of_initial_nodes),
+            stats.binom.ppf(0.99, self.high_number_of_initial_nodes - 1,
+                            self.rewiring_probability_with_high_number_of_initial_nodes)
         )
-        self.axes[1].plot(x_binom,
-                          stats.binom.pmf(x_binom, self.high_number_of_initial_nodes, self.rewiring_probability),
-                          label=f'binomial')
+        plt.plot(x_binom,
+                 stats.binom.pmf(x_binom, self.high_number_of_initial_nodes - 1,
+                                 self.rewiring_probability_with_high_number_of_initial_nodes),
+                 label=f'binomial')
 
-        poisson_average = (self.high_number_of_initial_nodes - 1) * self.rewiring_probability
+        poisson_average = (
+                                  self.high_number_of_initial_nodes - 1) * self.rewiring_probability_with_high_number_of_initial_nodes
         print(poisson_average)
         x_poisson = np.arange(
             stats.poisson.ppf(0.01, poisson_average),
             stats.poisson.ppf(0.99, poisson_average)
         )
-        self.axes[1].plot(
+        plt.plot(
             x_poisson,
             stats.poisson.pmf(x_poisson, poisson_average),
             label=f'poisson'
         )
 
-        self.axes[1].set_xlim([3750, 4250])
+        plt.xlabel('Degree')
+        plt.ylabel('Probability')
+        ax = plt.gca()
+
+        values = ax.get_yticks()
+        ax.set_yticklabels(['{:,.1%}'.format(x) for x in values])
+        # ax.spines['top'].set_visible(False)
+        # ax.spines['right'].set_visible(False)
+
+        plt.text(0.01, 0.95, f'Initial nodes: {self.high_number_of_initial_nodes}',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+        plt.text(0.01, 0.9, f'Simulations: {self.number_of_simulations}',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+        plt.text(0.01, 0.85, f'Rewiring probability: {self.rewiring_probability_with_high_number_of_initial_nodes:,.1%}',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+
+        plt.legend(loc='best', frameon=False)
+        plt.tight_layout()
+        plt.savefig('images/erdos_renyi_degree_binomial_and_poisson_distributions_high_number_of_initial_nodes.png')
+        plt.clf()

@@ -10,11 +10,11 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
     """
 
     def __init__(self):
-        self.number_of_simulations = 10
-        self.number_of_simulations = 3
+        self.number_of_simulations = 100
+        # self.number_of_simulations = 1
 
-        self.number_of_initial_nodes = 1500
-        self.number_of_initial_nodes = 100
+        self.number_of_initial_nodes = 2000
+        # self.number_of_initial_nodes = 100
 
         self.rewiring_probability = 0
         self.k_nearest_neighbours = 4
@@ -65,11 +65,31 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
 
     def plot(self):
         plt.axes(xscale='log')
+        plt.xlabel('Rewiring probability')
+        plt.ylabel('Clustering path length')
         plt.plot(self.rewiring_probabilities, self.average_clustering_coefficients,
-                 label='Average Clustering Coefficient')
+                 label='L/L0')
         plt.plot(self.rewiring_probabilities, self.average_path_length,
-                 label='Average Path Length')
+                 label='C/C0')
+
+        ax = plt.gca()
+        plt.text(0.01, 0.12, f'Neighbours: {self.k_nearest_neighbours}',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+
+        plt.text(0.01, 0.07, f'Simulations: {self.number_of_simulations}',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+
+        plt.text(0.01, 0.02, f'Initial nodes: {self.number_of_initial_nodes}',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+
         plt.legend(loc='best', frameon=False)
+        plt.tight_layout()
 
     @staticmethod
     def clean_plot():

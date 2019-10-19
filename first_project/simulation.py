@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct  4 13:47:52 2019
-
-@author: Regina Duarte
-@author: Pedro Rio
-"""
-
 import time
 
 from utils.format_simulation_time import format_simulation_time
