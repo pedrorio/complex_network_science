@@ -11,9 +11,9 @@ from visualizations.watts_strogatz_clustering_coefficient_and_average_path_lengt
 
 start = time.time()
 
-# ErdosRenyiAveragePathLength()
-# ErdosRenyiDegreeBinomialAndPoissonDistributions()
-# ErdosRenyiAndWattsStrogatzDegreeDistributions()
+ErdosRenyiAveragePathLength()
+ErdosRenyiDegreeBinomialAndPoissonDistributions()
+ErdosRenyiAndWattsStrogatzDegreeDistributions()
 WattsStrogatzClusteringCoefficientAndAveragePathLength()
 
 end = time.time()

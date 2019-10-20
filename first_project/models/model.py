@@ -18,9 +18,9 @@ class Model:
         average_degrees = 0
         for graph in self.graphs:
             nodes, links = graph.order(), graph.size()
-            average_degrees += links / nodes
+            average_degrees += float(links) / nodes
 
-        return average_degrees / len(self.graphs)
+        return 2 * float(average_degrees) / len(self.graphs)
 
     def degree_distribution(self):
         """
@@ -45,7 +45,7 @@ class Model:
 
             final_degree_count = np.add(final_degree_count, degree_count)
 
-        final_degree_count = final_degree_count / len(self.graphs)
+        final_degree_count = final_degree_count / float(len(self.graphs))
 
         probabilities_final_degree_count = final_degree_count / sum(final_degree_count)
 
@@ -60,7 +60,7 @@ class Model:
             clustering_of_all_nodes = nx.clustering(graph)
             averages += sum(clustering_of_all_nodes.values()) / nx.number_of_nodes(graph)
 
-        return averages / len(self.graphs)
+        return float(averages) / len(self.graphs)
 
     def average_path_length(self):
         """
@@ -70,4 +70,4 @@ class Model:
         for graph in self.graphs:
             average_path_length += nx.average_shortest_path_length(graph)
 
-        return average_path_length / len(self.graphs)
+        return float(average_path_length) / len(self.graphs)

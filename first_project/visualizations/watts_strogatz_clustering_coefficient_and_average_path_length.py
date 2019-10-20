@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from matplotlib import rc
 
 from models.watts_strogatz import WattsStrogatz
 
@@ -11,10 +12,6 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
 
     def __init__(self):
         self.number_of_simulations = 20
-        # self.number_of_simulations = 10
-
-        # self.number_of_nodes = 2000
-        # self.number_of_nodes = 100
         self.number_of_nodes = 200
 
         self.rewiring_probability = 0
@@ -66,26 +63,29 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
 
     def plot(self):
         plt.axes(xscale='log')
-        plt.xlabel('Probabilidade de ligação')
-        plt.ylabel('Comprimento do percurso do agrupamento relativo')
+
+        plt.xlabel(r'$p_{{ligação}}$')
+        plt.ylabel(r'$<d> e <C> relativos$')
 
         plt.plot(self.rewiring_probabilities, self.average_clustering_coefficients,
-                 label='CA (p) / CA (p = 0)')
+                 label=r'$\frac{<C>_p}{<C>_0},\,centralidade$')
+
         plt.plot(self.rewiring_probabilities, self.average_path_length,
-                 label='CPM (p) / CPM (p = 0)')
+                 label=r'$\frac{<d>_p}{<d>_0},\,localidade$')
 
         ax = plt.gca()
-        plt.text(0.01, 0.12, f'Vizinhos: {self.k_nearest_neighbours}',
+
+        plt.text(0.01, 0.12, fr'$n_{{vizinhos}}={self.k_nearest_neighbours}$',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.01, 0.07, f'Simulações: {self.number_of_simulations}',
+        plt.text(0.01, 0.07, fr'$n_{{simulações}}={self.number_of_simulations}$',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.01, 0.02, f'Nodos: {self.number_of_nodes}',
+        plt.text(0.01, 0.02, fr'$n_{{nodos}}={self.number_of_nodes}$',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
@@ -98,6 +98,5 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
         """
         saves the image and cleans the plot
         """
-        plt.savefig('images/wip/watts_strogatz_clustering_coefficient_and_average_path_length.png')
-        # plt.savefig('images/watts_strogatz_clustering_coefficient_and_average_path_length.png')
+        plt.savefig('report/images/watts_strogatz_clustering_coefficient_and_average_path_length.png')
         plt.clf()

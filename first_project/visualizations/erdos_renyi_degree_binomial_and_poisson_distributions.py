@@ -62,31 +62,34 @@ class ErdosRenyiDegreeBinomialAndPoissonDistributions:
         )
         plt.plot(x_poisson, stats.poisson.pmf(x_poisson, poisson_average), label=f'Poisson')
 
-        plt.xlabel('Grau')
-        plt.ylabel('Probabilidade')
+        plt.xlabel(r'$k$')
+        plt.ylabel(r'$p^k$')
         ax = plt.gca()
 
         values = ax.get_yticks()
         ax.set_yticklabels(['{:,.1%}'.format(x) for x in values])
-        # ax.spines['top'].set_visible(False)
-        # ax.spines['right'].set_visible(False)
 
-        plt.text(0.01, 0.95, f'Nodos: {self.low_number_of_nodes}',
+        plt.text(0.01, 0.95, fr'$n_{{nodos}}={self.low_number_of_nodes}$',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
-        plt.text(0.01, 0.9, f'Simulações: {self.number_of_simulations}',
+        plt.text(0.01, 0.90, fr'$n_{{simulações}}={self.number_of_simulations}$',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
-        plt.text(0.01, 0.85, f'Probabilidade de ligação: {self.link_probability_with_low_number_of_nodes:,.1%}',
+
+        plt.text(0.01, 0.85, fr'$p_{{ligação|binomial}}={self.link_probability_with_low_number_of_nodes:,.1%}$' + '%',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+        plt.text(0.01, 0.80, fr'$p_{{ligação|poisson}}={self.link_probability_with_high_number_of_nodes:,.1%}$' + '%',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
         plt.legend(loc='best', frameon=False)
         plt.tight_layout()
-        plt.savefig('images/erdos_renyi_degree_binomial_and_poisson_distributions_low_number_of_initial_nodes.png')
+        plt.savefig('report/images/erdos_renyi_degree_binomial_and_poisson_distributions_low_number_of_initial_nodes.png')
         plt.clf()
 
     def with_high_number_of_nodes(self):
@@ -130,29 +133,31 @@ class ErdosRenyiDegreeBinomialAndPoissonDistributions:
             label=f'Poisson'
         )
 
-        plt.xlabel('Degree')
-        plt.ylabel('Probability')
+        plt.xlabel(r'$k$')
+        plt.ylabel(r'$p^k$')
         ax = plt.gca()
 
         values = ax.get_yticks()
         ax.set_yticklabels(['{:,.1%}'.format(x) for x in values])
-        # ax.spines['top'].set_visible(False)
-        # ax.spines['right'].set_visible(False)
 
-        plt.text(0.01, 0.95, f'Nodos: {self.high_number_of_nodes}',
+        plt.text(0.01, 0.95, fr'$n_{{nodos}}={self.high_number_of_nodes}$',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
-        plt.text(0.01, 0.9, f'Simulações: {self.number_of_simulations}',
+        plt.text(0.01, 0.9, fr'$n_{{simulações}}={self.number_of_simulations}$',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
-        plt.text(0.01, 0.85, f'Probabilidade de ligação: {self.link_probability_with_high_number_of_nodes:,.1%}',
+        plt.text(0.01, 0.85, fr'$p_{{ligação|poisson}}={self.link_probability_with_high_number_of_nodes:,.1%}$' + '%',
+                 horizontalalignment='left',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
+        plt.text(0.01, 0.80, fr'$p_{{ligação|binomial}}={self.link_probability_with_low_number_of_nodes:,.1%}$' + '%',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
         plt.legend(loc='best', frameon=False)
         plt.tight_layout()
-        plt.savefig('images/erdos_renyi_degree_binomial_and_poisson_distributions_high_number_of_initial_nodes.png')
+        plt.savefig('report/images/erdos_renyi_degree_binomial_and_poisson_distributions_high_number_of_initial_nodes.png')
         plt.clf()

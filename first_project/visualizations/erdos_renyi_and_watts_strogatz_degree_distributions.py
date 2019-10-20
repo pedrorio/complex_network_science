@@ -12,9 +12,7 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
 
     def __init__(self):
         self.number_of_simulations = 100
-
         self.number_of_nodes = 10000
-
         self.k_neighbours = 4
 
         self.watts_strogatz_probabilities = [0, 0.1, 0.2, 0.4, 0.8, 1]
@@ -45,36 +43,36 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
                 '-o',
                 linewidth=2,
                 markersize=8,
-                label=f'Probabilidade de ligação: {probability:,.1%}'
+                label=fr'$p_{{ligação}}={probability:,.1%}$' + '%'
             )
             print(probability)
 
-        plt.ylabel('Probabilidade')
-        plt.xlabel('Grau')
+        plt.xlabel(r'$k$')
+        plt.ylabel(r'$p^k$')
 
         ax = plt.gca()
 
         values = ax.get_yticks()
         ax.set_yticklabels(['{:,.1%}'.format(x) for x in values])
 
-        plt.text(0.95, 0.20, f'Vizinhos: {self.k_neighbours}',
+        plt.text(0.95, 0.20, fr'$n_{{vizinhos}}={self.k_neighbours}$',
                  horizontalalignment='right',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.95, 0.15, f'Simulações: {self.number_of_simulations}',
+        plt.text(0.95, 0.15, fr'$n_{{simulações}}={self.number_of_simulations}$',
                  horizontalalignment='right',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.95, 0.10, f'Nodos: {self.number_of_nodes}',
+        plt.text(0.95, 0.10, fr'$n_{{nodos}}={self.number_of_nodes}$',
                  horizontalalignment='right',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
         plt.legend(loc='best', frameon=False)
         plt.tight_layout()
-        plt.savefig('images/watts_strogatz_degree_distribution.png')
+        plt.savefig('reprot/images/watts_strogatz_degree_distribution.png')
         plt.clf()
 
     def erdos_renyi_degree_distribution(self):
@@ -94,29 +92,29 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
                 '-o',
                 linewidth=2,
                 markersize=8,
-                label=f'Probabilidade de ligação: {probability:,.2%}'
+                label=fr'$p_{{ligação}}={probability:,.2%}$' + '%'
             )
             print(probability)
 
-        plt.ylabel('Probabilidade')
-        plt.xlabel('Grau')
+        plt.xlabel(r'$k$')
+        plt.ylabel(r'$p^k$')
 
         ax = plt.gca()
 
         values = ax.get_yticks()
         ax.set_yticklabels(['{:,.1%}'.format(x) for x in values])
 
-        plt.text(0.95, 0.20, f'Simulações: {self.number_of_simulations}',
+        plt.text(0.95, 0.20, fr'$n_{{simulações}}={self.number_of_simulations}$',
                  horizontalalignment='right',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.95, 0.15, f'Nodos: {self.number_of_nodes}',
+        plt.text(0.95, 0.15, fr'$n_{{nodos}}={self.number_of_nodes}$',
                  horizontalalignment='right',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
         plt.legend(loc='best', frameon=False)
         plt.tight_layout()
-        plt.savefig('images/erdos_renyi_degree_distribution.png')
+        plt.savefig('report/images/erdos_renyi_degree_distribution.png')
         plt.clf()
