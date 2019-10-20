@@ -10,11 +10,12 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
     """
 
     def __init__(self):
-        self.number_of_simulations = 100
-        # self.number_of_simulations = 1
+        self.number_of_simulations = 20
+        # self.number_of_simulations = 10
 
-        self.number_of_initial_nodes = 2000
-        # self.number_of_initial_nodes = 100
+        # self.number_of_nodes = 2000
+        # self.number_of_nodes = 100
+        self.number_of_nodes = 200
 
         self.rewiring_probability = 0
         self.k_nearest_neighbours = 4
@@ -23,14 +24,14 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
 
         self.C0 = WattsStrogatz(
             self.number_of_simulations,
-            self.number_of_initial_nodes,
+            self.number_of_nodes,
             self.rewiring_probability,
             self.k_nearest_neighbours
         ).clustering_coefficient_mean()
 
         self.L0 = WattsStrogatz(
             self.number_of_simulations,
-            self.number_of_initial_nodes,
+            self.number_of_nodes,
             self.rewiring_probability,
             self.k_nearest_neighbours
         ).average_path_length()
@@ -47,7 +48,7 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
         while self.rewiring_probability < 1:
             graphs = WattsStrogatz(
                 self.number_of_simulations,
-                self.number_of_initial_nodes,
+                self.number_of_nodes,
                 self.rewiring_probability,
                 self.k_nearest_neighbours
             )
@@ -65,25 +66,26 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
 
     def plot(self):
         plt.axes(xscale='log')
-        plt.xlabel('Rewiring probability')
-        plt.ylabel('Clustering path length')
+        plt.xlabel('Probabilidade de ligação')
+        plt.ylabel('Comprimento do percurso do agrupamento relativo')
+
         plt.plot(self.rewiring_probabilities, self.average_clustering_coefficients,
-                 label='L/L0')
+                 label='CA (p) / CA (p = 0)')
         plt.plot(self.rewiring_probabilities, self.average_path_length,
-                 label='C/C0')
+                 label='CPM (p) / CPM (p = 0)')
 
         ax = plt.gca()
-        plt.text(0.01, 0.12, f'Neighbours: {self.k_nearest_neighbours}',
+        plt.text(0.01, 0.12, f'Vizinhos: {self.k_nearest_neighbours}',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.01, 0.07, f'Simulations: {self.number_of_simulations}',
+        plt.text(0.01, 0.07, f'Simulações: {self.number_of_simulations}',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.01, 0.02, f'Initial nodes: {self.number_of_initial_nodes}',
+        plt.text(0.01, 0.02, f'Nodos: {self.number_of_nodes}',
                  horizontalalignment='left',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
@@ -96,5 +98,6 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
         """
         saves the image and cleans the plot
         """
-        plt.savefig('images/watts_strogatz_clustering_coefficient_and_average_path_length.png')
+        plt.savefig('images/wip/watts_strogatz_clustering_coefficient_and_average_path_length.png')
+        # plt.savefig('images/watts_strogatz_clustering_coefficient_and_average_path_length.png')
         plt.clf()

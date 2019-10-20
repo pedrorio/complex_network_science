@@ -11,6 +11,17 @@ class Model:
     def __init__(self, graphs):
         self.graphs = graphs
 
+    def average_degree(self):
+        """
+        :return: average_degree
+        """
+        average_degrees = 0
+        for graph in self.graphs:
+            nodes, links = graph.order(), graph.size()
+            average_degrees += links / nodes
+
+        return average_degrees / len(self.graphs)
+
     def degree_distribution(self):
         """
         :return: degree_distribution

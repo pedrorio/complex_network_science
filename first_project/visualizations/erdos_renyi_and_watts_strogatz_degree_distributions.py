@@ -12,13 +12,12 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
 
     def __init__(self):
         self.number_of_simulations = 100
-        # self.number_of_simulations = 1
 
-        self.number_of_initial_nodes = 10000
+        self.number_of_nodes = 10000
 
-        self.k_nearest_neighbours = 4
+        self.k_neighbours = 4
 
-        self.watts_strogatz_probabilities = [0, 0.1, 0.2, 0.4, 0.8]
+        self.watts_strogatz_probabilities = [0, 0.1, 0.2, 0.4, 0.8, 1]
         self.erdos_renyi_probabilities = [0.0001, 0.001, 0.0015]
 
         self.watts_strogatz_degree_distribution()
@@ -28,9 +27,9 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
         for probability in self.watts_strogatz_probabilities:
             graphs = WattsStrogatz(
                 self.number_of_simulations,
-                self.number_of_initial_nodes,
+                self.number_of_nodes,
                 probability,
-                self.k_nearest_neighbours
+                self.k_neighbours
             )
 
             watts_strogatz_degree_histogram = graphs.degree_distribution()
@@ -38,7 +37,7 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
 
             watts_strogatz_degrees, watts_strogatz_degree_histogram = zip(
                 *((degree, count) for degree, count in zip(watts_strogatz_degrees, watts_strogatz_degree_histogram) if
-                  count != 0))
+                  count >= 0.001))
 
             plt.plot(
                 watts_strogatz_degrees,
@@ -46,29 +45,29 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
                 '-o',
                 linewidth=2,
                 markersize=8,
-                label=f'Rewiring probability: {probability:,.1%}'
+                label=f'Probabilidade de ligação: {probability:,.1%}'
             )
             print(probability)
 
-        plt.ylabel('Probability')
-        plt.xlabel('Degree')
+        plt.ylabel('Probabilidade')
+        plt.xlabel('Grau')
 
         ax = plt.gca()
 
         values = ax.get_yticks()
         ax.set_yticklabels(['{:,.1%}'.format(x) for x in values])
 
-        plt.text(0.95, 0.20, f'Neighbours: {self.k_nearest_neighbours}',
+        plt.text(0.95, 0.20, f'Vizinhos: {self.k_neighbours}',
                  horizontalalignment='right',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.95, 0.15, f'Simulations: {self.number_of_simulations}',
+        plt.text(0.95, 0.15, f'Simulações: {self.number_of_simulations}',
                  horizontalalignment='right',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.95, 0.10, f'Initial nodes: {self.number_of_initial_nodes}',
+        plt.text(0.95, 0.10, f'Nodos: {self.number_of_nodes}',
                  horizontalalignment='right',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
@@ -80,14 +79,14 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
 
     def erdos_renyi_degree_distribution(self):
         for probability in self.erdos_renyi_probabilities:
-            graphs = ErdosRenyi(self.number_of_simulations, self.number_of_initial_nodes, probability)
+            graphs = ErdosRenyi(self.number_of_simulations, self.number_of_nodes, probability)
 
             erdos_renyi_degree_histogram = graphs.degree_distribution()
             erdos_renyi_degrees = list((index for index, value in enumerate(erdos_renyi_degree_histogram)))
 
             erdos_renyi_degrees, erdos_renyi_degree_histogram = zip(
                 *((degree, count) for degree, count in zip(erdos_renyi_degrees, erdos_renyi_degree_histogram) if
-                  count != 0))
+                  count >= 0.001))
 
             plt.plot(
                 erdos_renyi_degrees,
@@ -95,27 +94,27 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
                 '-o',
                 linewidth=2,
                 markersize=8,
-                label=f'Rewiring probability: {probability:,.2%}'
+                label=f'Probabilidade de ligação: {probability:,.2%}'
             )
             print(probability)
 
-        plt.ylabel('Probability')
-        plt.xlabel('Degree')
+        plt.ylabel('Probabilidade')
+        plt.xlabel('Grau')
 
         ax = plt.gca()
 
         values = ax.get_yticks()
         ax.set_yticklabels(['{:,.1%}'.format(x) for x in values])
 
-        plt.text(0.95, 0.20, f'Simulations: {self.number_of_simulations}',
+        plt.text(0.95, 0.20, f'Simulações: {self.number_of_simulations}',
                  horizontalalignment='right',
                  verticalalignment='baseline',
                  transform=ax.transAxes)
 
-        plt.text(0.95, 0.15, f'Initial nodes: {self.number_of_initial_nodes}',
-                          horizontalalignment='right',
-                          verticalalignment='baseline',
-                          transform=ax.transAxes)
+        plt.text(0.95, 0.15, f'Nodos: {self.number_of_nodes}',
+                 horizontalalignment='right',
+                 verticalalignment='baseline',
+                 transform=ax.transAxes)
 
         plt.legend(loc='best', frameon=False)
         plt.tight_layout()
