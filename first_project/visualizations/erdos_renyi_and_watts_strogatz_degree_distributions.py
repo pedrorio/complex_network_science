@@ -23,7 +23,7 @@ class ErdosRenyiAndWattsStrogatzDegreeDistributions:
 
     def watts_strogatz_degree_distribution(self):
         for probability in self.watts_strogatz_probabilities:
-            graphs = WattsStrogatz(
+            graphs = yield WattsStrogatz(
                 self.number_of_simulations,
                 self.number_of_nodes,
                 probability,

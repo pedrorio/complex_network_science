@@ -29,12 +29,14 @@ class ErdosRenyi(Model):
         """
         :return: generated erdos renyi graphs
         """
-        for simulation_number in range(self.number_of_simulations):
+        number_of_simulations = 1
+        while number_of_simulations <= self.number_of_simulations:
             erdos_renyi = nx.erdos_renyi_graph(
                 self.number_of_initial_nodes,
                 self.probability_of_rewiring_each_node
             )
 
             self.graphs.append(erdos_renyi)
+            number_of_simulations += 1
 
         return self.graphs

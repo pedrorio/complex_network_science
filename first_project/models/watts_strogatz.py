@@ -30,9 +30,11 @@ class WattsStrogatz(Model):
             self
     ):
         """
-        :return: generated erdos renyi graphs
+        :return: generated Watts Strogatz graphs
         """
-        for simulation_number in range(self.number_of_simulations):
+        number_of_simulations = 1
+        while number_of_simulations <= self.number_of_simulations:
+            # for simulation_number in range(self.number_of_simulations):
             watts_strogatz = nx.watts_strogatz_graph(
                 self.number_of_initial_nodes,
                 self.k_nearest_neighbours,
@@ -40,5 +42,8 @@ class WattsStrogatz(Model):
             )
 
             self.graphs.append(watts_strogatz)
+            # print('simulation number', number_of_simulations)
+
+            number_of_simulations += 1
 
         return self.graphs

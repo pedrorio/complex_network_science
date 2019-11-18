@@ -11,38 +11,41 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
     """
 
     def __init__(self):
-        self.number_of_simulations = 20
+        self.number_of_simulations = 100
         self.number_of_nodes = 200
-
         self.rewiring_probability = 0
         self.k_nearest_neighbours = 4
 
         self.probability_step = 0.001
 
-        self.C0 = WattsStrogatz(
+        self.C_0_GRAPHS = WattsStrogatz(
             self.number_of_simulations,
             self.number_of_nodes,
             self.rewiring_probability,
             self.k_nearest_neighbours
-        ).clustering_coefficient_mean()
+        )
 
-        self.L0 = WattsStrogatz(
+        self.C0 = self.C_0_GRAPHS.clustering_coefficient_mean()
+
+        self.L_0_GRAPH = WattsStrogatz(
             self.number_of_simulations,
             self.number_of_nodes,
             self.rewiring_probability,
             self.k_nearest_neighbours
-        ).average_path_length()
+        )
+        self.L0 = self.L_0_GRAPH.average_path_length()
 
         self.rewiring_probabilities = []
         self.average_clustering_coefficients = []
-        self.average_path_length = []
+        self.average_path_lengths = []
 
         self.clustering_coefficient_and_average_path_length()
         self.plot()
         self.clean_plot()
 
     def clustering_coefficient_and_average_path_length(self):
-        while self.rewiring_probability < 1:
+        while self.rewiring_probability <= 1:
+            print("REWIRING PROBABILITY", self.rewiring_probability)
             graphs = WattsStrogatz(
                 self.number_of_simulations,
                 self.number_of_nodes,
@@ -54,10 +57,8 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
             average_path_length = graphs.average_path_length() / self.L0
 
             self.average_clustering_coefficients.append(clustering_coefficient)
-            self.average_path_length.append(average_path_length)
+            self.average_path_lengths.append(average_path_length)
             self.rewiring_probabilities.append(self.rewiring_probability)
-
-            print(self.rewiring_probability)
 
             self.rewiring_probability += self.probability_step
 
@@ -70,7 +71,7 @@ class WattsStrogatzClusteringCoefficientAndAveragePathLength:
         plt.plot(self.rewiring_probabilities, self.average_clustering_coefficients,
                  label=r'$\frac{<C>_p}{<C>_0},\,centralidade$')
 
-        plt.plot(self.rewiring_probabilities, self.average_path_length,
+        plt.plot(self.rewiring_probabilities, self.average_path_lengths,
                  label=r'$\frac{<d>_p}{<d>_0},\,localidade$')
 
         ax = plt.gca()

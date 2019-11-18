@@ -31,10 +31,11 @@ class ErdosRenyiDegreeBinomialAndPoissonDistributions:
         self.with_high_number_of_nodes()
 
     def with_low_number_of_nodes(self):
-        degree_distribution = ErdosRenyi(
+        graphs = ErdosRenyi(
             self.number_of_simulations, self.low_number_of_nodes,
             self.link_probability
-        ).degree_distribution()
+        )
+        degree_distribution = graphs.degree_distribution()
         degrees = list(index for index, value in enumerate(degree_distribution))
 
         degrees, degree_distribution = zip(
@@ -93,11 +94,12 @@ class ErdosRenyiDegreeBinomialAndPoissonDistributions:
         plt.clf()
 
     def with_high_number_of_nodes(self):
-        degree_distribution = ErdosRenyi(
+        graphs = ErdosRenyi(
             self.number_of_simulations,
             self.high_number_of_nodes,
             self.link_probability_with_high_number_of_nodes
-        ).degree_distribution()
+        )
+        degree_distribution = graphs.degree_distribution()
         degrees = list(index for index, value in enumerate(degree_distribution))
 
         degrees, degree_distribution = zip(
