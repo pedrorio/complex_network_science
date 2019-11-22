@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Player.h
+
+/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Umpire.h
+
+/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/main.cpp
+iostream
+-
+vector
+-
+random
+-
+Player.h
+/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Player.h
+Umpire.h
+/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Umpire.h
+
