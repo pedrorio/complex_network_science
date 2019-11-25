@@ -1,3 +1,0 @@
-/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/rebuild_cache.dir
-/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/edit_cache.dir
-/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/project2.dir

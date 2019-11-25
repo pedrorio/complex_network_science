@@ -1,3 +1,0 @@
-/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/cmake-build-debug/CMakeFiles/project2.dir
