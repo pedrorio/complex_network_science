@@ -286,20 +286,36 @@ std::vector<Player> setupPlayers(std::map<Player::Strategies, int> populationMap
 }
 
 std::vector<Umpire> getUmpiresWithOtherStrategies(std::vector<Umpire> &umpires, Umpire &umpire) {
-    std::vector<Umpire> umpiresWithOtherStrategies;
-    std::copy_if(std::begin(umpires), std::end(umpires), umpiresWithOtherStrategies.end(),
-                 [umpire](Umpire u) {
-                     return u.strategy != umpire.strategy;
-                 });
+    std::vector<Umpire> umpiresWithOtherStrategies = umpires;
+    auto copyIfIterator = std::copy_if(
+            std::begin(umpires), std::end(umpires), std::begin(umpiresWithOtherStrategies), [umpire](Umpire u) {
+                return u.strategy != umpire.strategy;
+            });
+    umpiresWithOtherStrategies.erase(copyIfIterator, umpiresWithOtherStrategies.end());
+
+//    std::vector<Umpire> umpiresWithOtherStrategies;
+//    std::copy_if(std::begin(umpires), std::end(umpires), std::back_inserter(umpiresWithOtherStrategies),
+//                 [umpire](Umpire u) {
+//                     return u.strategy != umpire.strategy;
+//                 });
     return umpiresWithOtherStrategies;
 }
 
-std::vector<Player> getPlayersWithOtherStrategies(std::vector<Player> players, Player player) {
-    std::vector<Player> playersWithOtherStrategies;
-    std::copy_if(players.begin(), players.end(), playersWithOtherStrategies.end(),
-                 [player](Player p) {
-                     return p.strategy != player.strategy;
-                 });
+std::vector<Player> getPlayersWithOtherStrategies(std::vector<Player> &players, Player &player) {
+    std::vector<Player> playersWithOtherStrategies = players;
+
+    auto copyIfIterator = std::copy_if(
+            std::begin(players), std::end(players), std::begin(playersWithOtherStrategies), [player](Player p) {
+                return p.strategy != player.strategy;
+            });
+    playersWithOtherStrategies.erase(copyIfIterator, playersWithOtherStrategies.end());
+
+
+//    std::vector<Player> playersWithOtherStrategies;
+//    std::copy_if(std::begin(players), std::end(players), std::back_inserter(playersWithOtherStrategies),
+//                 [player](Player p) {
+//                     return p.strategy != player.strategy;
+//                 });
     return playersWithOtherStrategies;
 }
 

@@ -80,7 +80,7 @@ std::vector<Player> setupPlayers(std::map<Player::Strategies, int> populationMap
 
 std::vector<Umpire> getUmpiresWithOtherStrategies(std::vector<Umpire> &umpires, Umpire &umpire);
 
-std::vector<Player> getPlayersWithOtherStrategies(std::vector<Player> players, Player player);
+std::vector<Player> getPlayersWithOtherStrategies(std::vector<Player> &players, Player &player);
 
 void shuffleAgents(std::vector<Umpire> &umpires, std::vector<Player> &players, std::vector<Agents> &agentSlots);
 

@@ -87,14 +87,6 @@ int main() {
                 } else {
                     int otherUmpireIndex = randomElement(otherIndexes(selectedUmpireIndexes, umpireIndexes));
                     Umpire &otherUmpire = umpires[otherUmpireIndex];
-//                    std::vector<int> randomPlayerIndexes = randomElements(playerIndexes, 2);
-//                    Player &player = players[randomPlayerIndexes[0]];
-//                    Player &otherPlayer = players[randomPlayerIndexes[1]];
-
-//                    float imitationProbability = umpireImitationProbability(umpire, otherUmpire, totalNumberOfUmpires,
-//                                                                            umpiresPayoff, totalNumberOfPlayers,
-//                                                                            umpiresCount, playersCount,
-//                                                                            imitationStrength);
 
                     float fitnessUmpire = umpireFitness(umpire, totalNumberOfUmpires, umpiresPayoff,
                                                         totalNumberOfPlayers, umpiresCount,
@@ -126,12 +118,6 @@ int main() {
                 } else {
                     int otherPlayerIndex = randomElement(otherIndexes(selectedPlayerIndexes, playerIndexes));
                     Player &otherPlayer = players[otherPlayerIndex];
-//                    Umpire &umpire = umpires[randomElement(umpireIndexes)];
-
-//                    float imitationProbability = playerImitationProbability(player, otherPlayer, totalNumberOfPlayers,
-//                                                                            playersPayoff,
-//                                                                            totalNumberOfUmpires, playersCount,
-//                                                                            umpiresCount, imitationStrength);
 
                     float fitnessPlayer = playerFitness(player, totalNumberOfPlayers,
                                                         playersPayoff, totalNumberOfUmpires, playersCount,
