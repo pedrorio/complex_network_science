@@ -15,7 +15,7 @@
 int main() {
     std::cout << "Start program." << std::endl;
     std::ofstream outfile;
-    std::string fileName = "output.txt";
+    std::string fileName = "output.csv";
     outfile.open(fileName);
 
     printHeader(outfile);
@@ -26,7 +26,7 @@ int main() {
     int numberOfGenerations = 1000;
     float imitationStrength = 1.0;
 
-    float explorationProbability = 1.0;
+    float explorationProbability = 0.01;
 
     auto playersPayoff = playersPayoffMatrix(b, c, f, h, a);
     auto umpiresPayoff = umpiresPayoffMatrix(b, c, f, h, a);
@@ -141,10 +141,10 @@ int main() {
         }
 
         shuffleAgents(umpires, players, agentSlots);
-        if (generation % 10 == 0) {
+//        if (generation % 10 == 0) {
             printFrequencies(outfile, playersCount, totalNumberOfPlayers, umpiresCount, totalNumberOfUmpires,
                              generation);
-        }
+//        }
     }
 
     outfile.close();

@@ -292,12 +292,6 @@ std::vector<Umpire> getUmpiresWithOtherStrategies(std::vector<Umpire> &umpires, 
                 return u.strategy != umpire.strategy;
             });
     umpiresWithOtherStrategies.erase(copyIfIterator, umpiresWithOtherStrategies.end());
-
-//    std::vector<Umpire> umpiresWithOtherStrategies;
-//    std::copy_if(std::begin(umpires), std::end(umpires), std::back_inserter(umpiresWithOtherStrategies),
-//                 [umpire](Umpire u) {
-//                     return u.strategy != umpire.strategy;
-//                 });
     return umpiresWithOtherStrategies;
 }
 
@@ -309,13 +303,6 @@ std::vector<Player> getPlayersWithOtherStrategies(std::vector<Player> &players, 
                 return p.strategy != player.strategy;
             });
     playersWithOtherStrategies.erase(copyIfIterator, playersWithOtherStrategies.end());
-
-
-//    std::vector<Player> playersWithOtherStrategies;
-//    std::copy_if(std::begin(players), std::end(players), std::back_inserter(playersWithOtherStrategies),
-//                 [player](Player p) {
-//                     return p.strategy != player.strategy;
-//                 });
     return playersWithOtherStrategies;
 }
 
@@ -350,14 +337,14 @@ void printFrequencies(std::ofstream &outfile,
 
     for (const auto &entry: playersCount) {
         float playerFrequency = entry.second / totalPlayers;
-        std::cout << ", " << playerFrequency;
-        outfile << ", " << playerFrequency;
+        std::cout << "," << playerFrequency;
+        outfile << "," << playerFrequency;
     }
 
     for (const auto &entry: umpiresCount) {
         float umpireFrequency = entry.second / totalUmpires;
-        std::cout << ", " << umpireFrequency;
-        outfile << ", " << umpireFrequency;
+        std::cout << "," << umpireFrequency;
+        outfile << "," << umpireFrequency;
     }
 
     std::cout << std::endl;
@@ -371,14 +358,14 @@ void printHeader(std::ofstream &outfile) {
 
     for (const auto &entry: playerStrings) {
         std::string playerString = entry.second;
-        std::cout << ", " << playerString;
-        outfile << ", " << playerString;
+        std::cout << "," << playerString;
+        outfile << "," << playerString;
     }
 
     for (const auto &entry: umpireStrings) {
         std::string umpireString = entry.second;
-        std::cout << ", " << umpireString;
-        outfile << ", " << umpireString;
+        std::cout << "," << umpireString;
+        outfile << "," << umpireString;
     }
 
     std::cout << std::endl;
