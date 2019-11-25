@@ -6,8 +6,8 @@
 #define PROJECT2_UMPIREPAYOFFS_H
 
 #include <map>
-#include "Umpire.h"
-#include "Player.h"
+#include "../agents/Umpire.h"
+#include "../agents/Player.h"
 
 std::map<Umpire::Strategies,
         std::map<Player::Strategies,

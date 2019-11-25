@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/project2.dir/Player.cpp.o"
-  "CMakeFiles/project2.dir/Umpire.cpp.o"
+  "CMakeFiles/project2.dir/agents/Player.cpp.o"
+  "CMakeFiles/project2.dir/agents/Umpire.cpp.o"
   "CMakeFiles/project2.dir/main.cpp.o"
-  "CMakeFiles/project2.dir/playerPayoffs.cpp.o"
-  "CMakeFiles/project2.dir/umpirePayoffs.cpp.o"
-  "CMakeFiles/project2.dir/utils.cpp.o"
+  "CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.o"
+  "CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.o"
+  "CMakeFiles/project2.dir/utils/utils.cpp.o"
   "project2"
   "project2.pdb"
 )

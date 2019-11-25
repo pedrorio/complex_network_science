@@ -1,207 +1,167 @@
 #include <iostream>
 #include <vector>
-#include <random>
 #include <map>
 #include <fstream>
+#include <variant>
 
-#include "Player.h"
-#include "Umpire.h"
+#include "agents/Player.h"
+#include "agents/Umpire.h"
 
-#include "playerPayoffs.h"
-#include "umpirePayoffs.h"
-#include "utils.h"
+#include "payoffs/playerPayoffs.h"
+#include "payoffs/umpirePayoffs.h"
 
-std::vector<Umpire> setupUmpires(std::map<Umpire::Strategies, int> populationMap) {
-    std::vector<Umpire> umpires;
-
-    for (Umpire::Strategies umpireStrategy = Umpire::Strategies(0);
-         umpireStrategy <= Umpire::Strategies::Last;
-         umpireStrategy = static_cast<Umpire::Strategies>(static_cast<int>(umpireStrategy) + 1)) {
-
-        std::vector<Umpire> umpiresWithStrategy(populationMap[umpireStrategy], Umpire(umpireStrategy));
-        umpires.insert(std::end(umpires), std::begin(umpiresWithStrategy), std::end(umpiresWithStrategy));
-    }
-
-    auto random = std::default_random_engine{};
-    std::shuffle(std::begin(umpires), std::end(umpires), random);
-
-    return umpires;
-}
-
-std::vector<Player> setupPlayers(std::map<Player::Strategies, int> populationMap) {
-    std::vector<Player> players;
-
-    for (Player::Strategies playerStrategy = Player::Strategies(0);
-         playerStrategy <= Player::Strategies::Last;
-         playerStrategy = static_cast<Player::Strategies>(static_cast<int>(playerStrategy) + 1)) {
-
-        std::vector<Player> playersWithStrategy(populationMap[playerStrategy], Player(playerStrategy));
-        players.insert(std::end(players), std::begin(playersWithStrategy), std::end(playersWithStrategy));
-    }
-
-    auto random = std::default_random_engine{};
-    std::shuffle(std::begin(players), std::end(players), random);
-
-    return players;
-}
+#include "utils/utils.h"
 
 int main() {
-
     std::cout << "Start program." << std::endl;
-
     std::ofstream outfile;
-    outfile.open("output.txt");
-    outfile << "Start program." << std::endl;
+    std::string fileName = "output.txt";
+    outfile.open(fileName);
+
+    printHeader(outfile);
 
     float b, c, f, h, a;
     a = 2, b = 0.2, c = 0.5, f = 0.2, h = 0.1;
 
-    std::map<Umpire::Strategies,
-            std::map<Player::Strategies,
-                    std::map<Player::Strategies, float>
-            >
-    > playersPayoff = playersPayoffMatrix(b, c, f, h, a);
-    std::map<Umpire::Strategies,
-            std::map<Player::Strategies,
-                    std::map<Player::Strategies, float>
-            >
-    > umpiresPayoff = umpiresPayoffMatrix(b, c, f, h, a);
-
     int numberOfGenerations = 1000;
     float imitationStrength = 1.0;
 
-    float explorationProbability = 0.5;
+    float explorationProbability = 1.0;
+
+    auto playersPayoff = playersPayoffMatrix(b, c, f, h, a);
+    auto umpiresPayoff = umpiresPayoffMatrix(b, c, f, h, a);
 
     std::map<Player::Strategies, int> playersMap = {
-            {Player::Strategies::OptimisticCooperator, 10},
-            {Player::Strategies::OptimisticDefector,   10},
-            {Player::Strategies::PrudentCooperator,    10},
-            {Player::Strategies::PrudentDefector,      10}
+            {Player::Strategies::OptimisticCooperator, 100},
+            {Player::Strategies::OptimisticDefector,   100},
+            {Player::Strategies::PrudentCooperator,    100},
+            {Player::Strategies::PrudentDefector,      100}
     };
 
     std::map<Umpire::Strategies, int> umpiresMap = {
-            {Umpire::Strategies::Corrupt, 10},
-            {Umpire::Strategies::Honest,  10}
+            {Umpire::Strategies::Corrupt, 100},
+            {Umpire::Strategies::Honest,  100}
     };
 
     std::vector<Player> players = setupPlayers(playersMap);
     std::vector<Umpire> umpires = setupUmpires(umpiresMap);
+    std::vector<Agents> agentSlots = setupAgentSlots(players, umpires);
 
-//    std::ofstream outfile;
-//    outfile.open("output.txt");
-//    outfile << "HELLO WORLD";
-//    outfile.close();
+    int numberOfPlayers = players.size();
+    float totalNumberOfPlayers = static_cast<float>(numberOfPlayers);
 
-    std::vector<int> playerIndexes = range(0, players.size() - 1);
-    std::vector<int> umpireIndexes = range(0, umpires.size() - 1);
+    int numberOfUmpires = umpires.size();
+    float totalNumberOfUmpires = static_cast<float>(numberOfUmpires);
 
-    for (auto g: range(1, numberOfGenerations)) {
-        std::cout << "players size " << players.size() << std::endl;
-        std::cout << "umpires size " << umpires.size() << std::endl;
+    int totalNumberOfAgents = numberOfPlayers + numberOfUmpires;
 
-        for (auto j: umpireIndexes) {
-            Umpire umpireOne = umpires[j];
+    auto playerIndexes = range(0, numberOfPlayers - 1);
+    auto umpireIndexes = range(0, numberOfUmpires - 1);
+    auto agentIndexes = range(0, totalNumberOfAgents - 1);
 
-            std::vector<int> otherUmpireIndexes(umpireIndexes.size() - 1);
-            std::copy_if(umpireIndexes.begin(), umpireIndexes.end(),
-                         otherUmpireIndexes.begin(),
-                         [j](int i) { return (i != j); });
+    for (auto generation: range(1, numberOfGenerations)) {
 
-            int umpireTwoIndex = randomElement(otherUmpireIndexes);
-            Umpire umpireTwo = umpires[umpireTwoIndex];
+        int umpireIndex = 0;
+        int playerIndex = 0;
 
-            int playerOneIndex = randomElement(playerIndexes);
-            Player playerOne = players[playerOneIndex];
+        std::vector<int> selectedUmpireIndexes = {umpireIndex};
+        std::vector<int> selectedPlayerIndexes = {playerIndex};
 
-            std::vector<int> otherPlayerIndexes(playerIndexes.size() - 1);
-            std::copy_if(playerIndexes.begin(), playerIndexes.end(),
-                         otherPlayerIndexes.begin(),
-                         [playerOneIndex](int i) { return (i != playerOneIndex); });
+        std::map<Player::Strategies, int> playersCount = countPlayers(players);
+        std::map<Umpire::Strategies, int> umpiresCount = countUmpires(umpires);
 
-            int playerTwoIndex = randomElement(otherPlayerIndexes);
-            Player playerTwo = players[playerTwoIndex];
-
-            float umpireOneFitness = umpireFitness(playerOne, playerTwo, players, umpireOne, umpireTwo, umpires,
-                                                   umpiresPayoff);
-            float umpireTwoFitness = umpireFitness(playerOne, playerTwo, players, umpireTwo, umpireOne, umpires,
-                                                   umpiresPayoff);
-
-            float umpireOneImitationProbability = imitationProbability(imitationStrength, umpireOneFitness,
-                                                                       umpireTwoFitness);
-
+        for (auto agent: agentSlots) {
             float imitationRealization = random(0, 100) / 100.0;
             float experimentationRealization = random(0, 100) / 100.0;
 
-            if (imitationRealization < umpireOneImitationProbability) {
-                umpires[j] = umpires[umpireTwoIndex];
-            }
+            if (agent == Agents::Umpire) {
+                Umpire &umpire = umpires[umpireIndex];
 
-            if (experimentationRealization < explorationProbability) {
-                umpires[j] = umpires[umpireTwoIndex];
-            }
+                if (experimentationRealization < explorationProbability) {
+                    std::vector<Umpire> umpiresWithOtherStrategies = getUmpiresWithOtherStrategies(umpires, umpire);
+                    Umpire &otherUmpire = umpiresWithOtherStrategies[random(0, umpiresWithOtherStrategies.size() - 1)];
+                    umpire = otherUmpire;
 
+                    umpiresCount[umpire.strategy]--;
+                    umpiresCount[otherUmpire.strategy]++;
+                } else {
+                    int otherUmpireIndex = randomElement(otherIndexes(selectedUmpireIndexes, umpireIndexes));
+                    Umpire &otherUmpire = umpires[otherUmpireIndex];
+//                    std::vector<int> randomPlayerIndexes = randomElements(playerIndexes, 2);
+//                    Player &player = players[randomPlayerIndexes[0]];
+//                    Player &otherPlayer = players[randomPlayerIndexes[1]];
+
+//                    float imitationProbability = umpireImitationProbability(umpire, otherUmpire, totalNumberOfUmpires,
+//                                                                            umpiresPayoff, totalNumberOfPlayers,
+//                                                                            umpiresCount, playersCount,
+//                                                                            imitationStrength);
+
+                    float fitnessUmpire = umpireFitness(umpire, totalNumberOfUmpires, umpiresPayoff,
+                                                        totalNumberOfPlayers, umpiresCount,
+                                                        playersCount);
+                    float fitnessOtherUmpire = umpireFitness(otherUmpire, totalNumberOfUmpires, umpiresPayoff,
+                                                             totalNumberOfPlayers, umpiresCount,
+                                                             playersCount);
+                    float umpireImitationProbability = imitationProbability(imitationStrength, fitnessUmpire,
+                                                                            fitnessOtherUmpire);
+
+                    if (imitationRealization < (1 - explorationProbability) * umpireImitationProbability) {
+                        umpire = otherUmpire;
+                        umpiresCount[umpire.strategy]--;
+                        umpiresCount[otherUmpire.strategy]++;
+                    }
+                }
+
+                umpireIndex++;
+            } else if (agent == Agents::Player) {
+                Player &player = players[playerIndex];
+
+                if (experimentationRealization < explorationProbability) {
+                    std::vector<Player> playersWithOtherStrategies = getPlayersWithOtherStrategies(players, player);
+                    Player &otherPlayer = playersWithOtherStrategies[random(0, playersWithOtherStrategies.size() - 1)];
+
+                    player = otherPlayer;
+                    playersCount[player.strategy]++;
+                    playersCount[otherPlayer.strategy]--;
+                } else {
+                    int otherPlayerIndex = randomElement(otherIndexes(selectedPlayerIndexes, playerIndexes));
+                    Player &otherPlayer = players[otherPlayerIndex];
+//                    Umpire &umpire = umpires[randomElement(umpireIndexes)];
+
+//                    float imitationProbability = playerImitationProbability(player, otherPlayer, totalNumberOfPlayers,
+//                                                                            playersPayoff,
+//                                                                            totalNumberOfUmpires, playersCount,
+//                                                                            umpiresCount, imitationStrength);
+
+                    float fitnessPlayer = playerFitness(player, totalNumberOfPlayers,
+                                                        playersPayoff, totalNumberOfUmpires, playersCount,
+                                                        umpiresCount);
+                    float fitnessOtherPlayer = playerFitness(otherPlayer, totalNumberOfPlayers,
+                                                             playersPayoff, totalNumberOfUmpires, playersCount,
+                                                             umpiresCount);
+
+                    float playerImitationProbability = imitationProbability(imitationStrength, fitnessPlayer,
+                                                                            fitnessOtherPlayer);
+
+                    if (imitationRealization < (1 - explorationProbability) * playerImitationProbability) {
+                        player = otherPlayer;
+                        playersCount[player.strategy]--;
+                        playersCount[otherPlayer.strategy]++;
+                    }
+                }
+
+                playerIndex++;
+            }
         }
 
-        for (auto i: playerIndexes) {
-            Player playerOne = players[i];
-
-            std::vector<int> otherPlayerIndexes(playerIndexes.size() - 1);
-            std::copy_if(playerIndexes.begin(), playerIndexes.end(),
-                         otherPlayerIndexes.begin(),
-                         [i](int j) { return (j != i); });
-
-            int playerTwoIndex = randomElement(otherPlayerIndexes);
-            Player playerTwo = players[playerTwoIndex];
-
-            int umpireOneIndex = randomElement(umpireIndexes);
-            Umpire umpireOne = umpires[umpireOneIndex];
-
-            float playerOneFitness = playerFitness(playerOne, playerTwo, players, umpireOne, playersPayoff);
-            float playerTwoFitness = playerFitness(playerTwo, playerOne, players, umpireOne, playersPayoff);
-
-            float playerOneImitationProbability = imitationProbability(imitationStrength, playerOneFitness,
-                                                                       playerTwoFitness);
-
-            float imitationRealization = random(0, 100) / 100.0;
-            float experimentationRealization = random(0, 100) / 100.0;
-
-            if (imitationRealization < playerOneImitationProbability) {
-                players[i] = players[playerTwoIndex];
-            }
-
-            if (experimentationRealization < explorationProbability) {
-                players[i] = players[playerTwoIndex];
-            }
+        shuffleAgents(umpires, players, agentSlots);
+        if (generation % 10 == 0) {
+            printFrequencies(outfile, playersCount, totalNumberOfPlayers, umpiresCount, totalNumberOfUmpires,
+                             generation);
         }
-
-        auto random = std::default_random_engine{};
-        std::shuffle(std::begin(umpires), std::end(umpires), random);
-        std::shuffle(std::begin(players), std::end(players), random);
-
-
-        std::cout << "G " << g << " UMPIRES";
-        outfile << "G " << g << " UMPIRES";
-        for (Umpire agent: umpires) {
-            std::cout << " | " << static_cast<int>(agent.strategy);
-            outfile << " | " << static_cast<int>(agent.strategy);
-        }
-        std::cout << std::endl;
-        outfile << std::endl;
-
-        std::cout << "G " << g << " PLAYERS";
-        outfile << "G " << g << " PLAYERS";
-        for (Player agent: players) {
-            std::cout << " | " << static_cast<int>(agent.strategy);
-            outfile << " | " << static_cast<int>(agent.strategy);
-        }
-        std::cout << std::endl;
-        outfile << std::endl;
-
     }
 
-    outfile << "End program." << std::endl;
     outfile.close();
-
     std::cout << "End program." << std::endl;
     return 0;
 }

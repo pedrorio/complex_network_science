@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.15.4/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2
+CMAKE_SOURCE_DIR = /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2
+CMAKE_BINARY_DIR = /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.15.4/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/local/Cellar/cmake/3.15.4/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,59 +123,59 @@ project2/fast:
 	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/build
 .PHONY : project2/fast
 
-Player.o: Player.cpp.o
+agents/Player.o: agents/Player.cpp.o
 
-.PHONY : Player.o
-
-# target to build an object file
-Player.cpp.o:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/Player.cpp.o
-.PHONY : Player.cpp.o
-
-Player.i: Player.cpp.i
-
-.PHONY : Player.i
-
-# target to preprocess a source file
-Player.cpp.i:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/Player.cpp.i
-.PHONY : Player.cpp.i
-
-Player.s: Player.cpp.s
-
-.PHONY : Player.s
-
-# target to generate assembly for a file
-Player.cpp.s:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/Player.cpp.s
-.PHONY : Player.cpp.s
-
-Umpire.o: Umpire.cpp.o
-
-.PHONY : Umpire.o
+.PHONY : agents/Player.o
 
 # target to build an object file
-Umpire.cpp.o:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/Umpire.cpp.o
-.PHONY : Umpire.cpp.o
+agents/Player.cpp.o:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/agents/Player.cpp.o
+.PHONY : agents/Player.cpp.o
 
-Umpire.i: Umpire.cpp.i
+agents/Player.i: agents/Player.cpp.i
 
-.PHONY : Umpire.i
+.PHONY : agents/Player.i
 
 # target to preprocess a source file
-Umpire.cpp.i:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/Umpire.cpp.i
-.PHONY : Umpire.cpp.i
+agents/Player.cpp.i:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/agents/Player.cpp.i
+.PHONY : agents/Player.cpp.i
 
-Umpire.s: Umpire.cpp.s
+agents/Player.s: agents/Player.cpp.s
 
-.PHONY : Umpire.s
+.PHONY : agents/Player.s
 
 # target to generate assembly for a file
-Umpire.cpp.s:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/Umpire.cpp.s
-.PHONY : Umpire.cpp.s
+agents/Player.cpp.s:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/agents/Player.cpp.s
+.PHONY : agents/Player.cpp.s
+
+agents/Umpire.o: agents/Umpire.cpp.o
+
+.PHONY : agents/Umpire.o
+
+# target to build an object file
+agents/Umpire.cpp.o:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/agents/Umpire.cpp.o
+.PHONY : agents/Umpire.cpp.o
+
+agents/Umpire.i: agents/Umpire.cpp.i
+
+.PHONY : agents/Umpire.i
+
+# target to preprocess a source file
+agents/Umpire.cpp.i:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/agents/Umpire.cpp.i
+.PHONY : agents/Umpire.cpp.i
+
+agents/Umpire.s: agents/Umpire.cpp.s
+
+.PHONY : agents/Umpire.s
+
+# target to generate assembly for a file
+agents/Umpire.cpp.s:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/agents/Umpire.cpp.s
+.PHONY : agents/Umpire.cpp.s
 
 main.o: main.cpp.o
 
@@ -204,86 +204,86 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-playerPayoffs.o: playerPayoffs.cpp.o
+payoffs/playerPayoffs.o: payoffs/playerPayoffs.cpp.o
 
-.PHONY : playerPayoffs.o
-
-# target to build an object file
-playerPayoffs.cpp.o:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/playerPayoffs.cpp.o
-.PHONY : playerPayoffs.cpp.o
-
-playerPayoffs.i: playerPayoffs.cpp.i
-
-.PHONY : playerPayoffs.i
-
-# target to preprocess a source file
-playerPayoffs.cpp.i:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/playerPayoffs.cpp.i
-.PHONY : playerPayoffs.cpp.i
-
-playerPayoffs.s: playerPayoffs.cpp.s
-
-.PHONY : playerPayoffs.s
-
-# target to generate assembly for a file
-playerPayoffs.cpp.s:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/playerPayoffs.cpp.s
-.PHONY : playerPayoffs.cpp.s
-
-umpirePayoffs.o: umpirePayoffs.cpp.o
-
-.PHONY : umpirePayoffs.o
+.PHONY : payoffs/playerPayoffs.o
 
 # target to build an object file
-umpirePayoffs.cpp.o:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/umpirePayoffs.cpp.o
-.PHONY : umpirePayoffs.cpp.o
+payoffs/playerPayoffs.cpp.o:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.o
+.PHONY : payoffs/playerPayoffs.cpp.o
 
-umpirePayoffs.i: umpirePayoffs.cpp.i
+payoffs/playerPayoffs.i: payoffs/playerPayoffs.cpp.i
 
-.PHONY : umpirePayoffs.i
+.PHONY : payoffs/playerPayoffs.i
 
 # target to preprocess a source file
-umpirePayoffs.cpp.i:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/umpirePayoffs.cpp.i
-.PHONY : umpirePayoffs.cpp.i
+payoffs/playerPayoffs.cpp.i:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.i
+.PHONY : payoffs/playerPayoffs.cpp.i
 
-umpirePayoffs.s: umpirePayoffs.cpp.s
+payoffs/playerPayoffs.s: payoffs/playerPayoffs.cpp.s
 
-.PHONY : umpirePayoffs.s
+.PHONY : payoffs/playerPayoffs.s
 
 # target to generate assembly for a file
-umpirePayoffs.cpp.s:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/umpirePayoffs.cpp.s
-.PHONY : umpirePayoffs.cpp.s
+payoffs/playerPayoffs.cpp.s:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.s
+.PHONY : payoffs/playerPayoffs.cpp.s
 
-utils.o: utils.cpp.o
+payoffs/umpirePayoffs.o: payoffs/umpirePayoffs.cpp.o
 
-.PHONY : utils.o
+.PHONY : payoffs/umpirePayoffs.o
 
 # target to build an object file
-utils.cpp.o:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/utils.cpp.o
-.PHONY : utils.cpp.o
+payoffs/umpirePayoffs.cpp.o:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.o
+.PHONY : payoffs/umpirePayoffs.cpp.o
 
-utils.i: utils.cpp.i
+payoffs/umpirePayoffs.i: payoffs/umpirePayoffs.cpp.i
 
-.PHONY : utils.i
+.PHONY : payoffs/umpirePayoffs.i
 
 # target to preprocess a source file
-utils.cpp.i:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/utils.cpp.i
-.PHONY : utils.cpp.i
+payoffs/umpirePayoffs.cpp.i:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.i
+.PHONY : payoffs/umpirePayoffs.cpp.i
 
-utils.s: utils.cpp.s
+payoffs/umpirePayoffs.s: payoffs/umpirePayoffs.cpp.s
 
-.PHONY : utils.s
+.PHONY : payoffs/umpirePayoffs.s
 
 # target to generate assembly for a file
-utils.cpp.s:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/utils.cpp.s
-.PHONY : utils.cpp.s
+payoffs/umpirePayoffs.cpp.s:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.s
+.PHONY : payoffs/umpirePayoffs.cpp.s
+
+utils/utils.o: utils/utils.cpp.o
+
+.PHONY : utils/utils.o
+
+# target to build an object file
+utils/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/utils/utils.cpp.o
+.PHONY : utils/utils.cpp.o
+
+utils/utils.i: utils/utils.cpp.i
+
+.PHONY : utils/utils.i
+
+# target to preprocess a source file
+utils/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/utils/utils.cpp.i
+.PHONY : utils/utils.cpp.i
+
+utils/utils.s: utils/utils.cpp.s
+
+.PHONY : utils/utils.s
+
+# target to generate assembly for a file
+utils/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/utils/utils.cpp.s
+.PHONY : utils/utils.cpp.s
 
 # Help Target
 help:
@@ -294,24 +294,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... project2"
-	@echo "... Player.o"
-	@echo "... Player.i"
-	@echo "... Player.s"
-	@echo "... Umpire.o"
-	@echo "... Umpire.i"
-	@echo "... Umpire.s"
+	@echo "... agents/Player.o"
+	@echo "... agents/Player.i"
+	@echo "... agents/Player.s"
+	@echo "... agents/Umpire.o"
+	@echo "... agents/Umpire.i"
+	@echo "... agents/Umpire.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... playerPayoffs.o"
-	@echo "... playerPayoffs.i"
-	@echo "... playerPayoffs.s"
-	@echo "... umpirePayoffs.o"
-	@echo "... umpirePayoffs.i"
-	@echo "... umpirePayoffs.s"
-	@echo "... utils.o"
-	@echo "... utils.i"
-	@echo "... utils.s"
+	@echo "... payoffs/playerPayoffs.o"
+	@echo "... payoffs/playerPayoffs.i"
+	@echo "... payoffs/playerPayoffs.s"
+	@echo "... payoffs/umpirePayoffs.o"
+	@echo "... payoffs/umpirePayoffs.i"
+	@echo "... payoffs/umpirePayoffs.s"
+	@echo "... utils/utils.o"
+	@echo "... utils/utils.i"
+	@echo "... utils/utils.s"
 .PHONY : help
 
 

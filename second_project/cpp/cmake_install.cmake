@@ -1,4 +1,4 @@
-# Install script for directory: /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2
+# Install script for directory: /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

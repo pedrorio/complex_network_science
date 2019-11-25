@@ -15,6 +15,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
   "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
+  "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+  "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/CMakeFindCodeBlocks.cmake"
   "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/CMakeGenericSystem.cmake"
   "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/CMakeInitializeConfigs.cmake"
   "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/CMakeLanguageInformation.cmake"
@@ -34,6 +36,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
   "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/Platform/Darwin.cmake"
   "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/Platform/UnixPaths.cmake"
+  "/usr/local/Cellar/cmake/3.15.4/share/cmake/Modules/ProcessorCount.cmake"
   )
 
 # The corresponding makefile is:

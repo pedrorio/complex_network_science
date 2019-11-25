@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Player.cpp" "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles/project2.dir/Player.cpp.o"
-  "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Umpire.cpp" "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles/project2.dir/Umpire.cpp.o"
-  "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/main.cpp" "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles/project2.dir/main.cpp.o"
-  "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/playerPayoffs.cpp" "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles/project2.dir/playerPayoffs.cpp.o"
-  "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/umpirePayoffs.cpp" "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles/project2.dir/umpirePayoffs.cpp.o"
-  "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/utils.cpp" "/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles/project2.dir/utils.cpp.o"
+  "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Player.cpp" "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/project2.dir/agents/Player.cpp.o"
+  "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Umpire.cpp" "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/project2.dir/agents/Umpire.cpp.o"
+  "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/main.cpp" "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/project2.dir/main.cpp.o"
+  "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/playerPayoffs.cpp" "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.o"
+  "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/umpirePayoffs.cpp" "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.o"
+  "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/utils.cpp" "/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/project2.dir/utils/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

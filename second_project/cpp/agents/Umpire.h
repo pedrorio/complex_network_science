@@ -5,6 +5,8 @@
 #ifndef PROJECT2_UMPIRE_H
 #define PROJECT2_UMPIRE_H
 
+#include <map>
+
 class Umpire {
 
 public:
@@ -13,6 +15,7 @@ public:
         Corrupt,
         Last = Corrupt
     };
+
     Strategies strategy;
 
     Umpire(Strategies strategy) {

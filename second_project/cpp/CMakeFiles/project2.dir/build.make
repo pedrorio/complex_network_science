@@ -43,10 +43,10 @@ RM = /usr/local/Cellar/cmake/3.15.4/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2
+CMAKE_SOURCE_DIR = /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2
+CMAKE_BINARY_DIR = /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp
 
 # Include any dependencies generated for this target.
 include CMakeFiles/project2.dir/depend.make
@@ -59,103 +59,103 @@ include CMakeFiles/project2.dir/flags.make
 
 CMakeFiles/project2.dir/main.cpp.o: CMakeFiles/project2.dir/flags.make
 CMakeFiles/project2.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/project2.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/main.cpp.o -c /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/project2.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/main.cpp.o -c /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/main.cpp
 
 CMakeFiles/project2.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/main.cpp > CMakeFiles/project2.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/main.cpp > CMakeFiles/project2.dir/main.cpp.i
 
 CMakeFiles/project2.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/main.cpp -o CMakeFiles/project2.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/main.cpp -o CMakeFiles/project2.dir/main.cpp.s
 
-CMakeFiles/project2.dir/Player.cpp.o: CMakeFiles/project2.dir/flags.make
-CMakeFiles/project2.dir/Player.cpp.o: Player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project2.dir/Player.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/Player.cpp.o -c /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Player.cpp
+CMakeFiles/project2.dir/agents/Player.cpp.o: CMakeFiles/project2.dir/flags.make
+CMakeFiles/project2.dir/agents/Player.cpp.o: agents/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project2.dir/agents/Player.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/agents/Player.cpp.o -c /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Player.cpp
 
-CMakeFiles/project2.dir/Player.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/Player.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Player.cpp > CMakeFiles/project2.dir/Player.cpp.i
+CMakeFiles/project2.dir/agents/Player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/agents/Player.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Player.cpp > CMakeFiles/project2.dir/agents/Player.cpp.i
 
-CMakeFiles/project2.dir/Player.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/Player.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Player.cpp -o CMakeFiles/project2.dir/Player.cpp.s
+CMakeFiles/project2.dir/agents/Player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/agents/Player.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Player.cpp -o CMakeFiles/project2.dir/agents/Player.cpp.s
 
-CMakeFiles/project2.dir/Umpire.cpp.o: CMakeFiles/project2.dir/flags.make
-CMakeFiles/project2.dir/Umpire.cpp.o: Umpire.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project2.dir/Umpire.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/Umpire.cpp.o -c /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Umpire.cpp
+CMakeFiles/project2.dir/agents/Umpire.cpp.o: CMakeFiles/project2.dir/flags.make
+CMakeFiles/project2.dir/agents/Umpire.cpp.o: agents/Umpire.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project2.dir/agents/Umpire.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/agents/Umpire.cpp.o -c /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Umpire.cpp
 
-CMakeFiles/project2.dir/Umpire.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/Umpire.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Umpire.cpp > CMakeFiles/project2.dir/Umpire.cpp.i
+CMakeFiles/project2.dir/agents/Umpire.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/agents/Umpire.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Umpire.cpp > CMakeFiles/project2.dir/agents/Umpire.cpp.i
 
-CMakeFiles/project2.dir/Umpire.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/Umpire.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/Umpire.cpp -o CMakeFiles/project2.dir/Umpire.cpp.s
+CMakeFiles/project2.dir/agents/Umpire.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/agents/Umpire.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Umpire.cpp -o CMakeFiles/project2.dir/agents/Umpire.cpp.s
 
-CMakeFiles/project2.dir/utils.cpp.o: CMakeFiles/project2.dir/flags.make
-CMakeFiles/project2.dir/utils.cpp.o: utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project2.dir/utils.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/utils.cpp.o -c /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/utils.cpp
+CMakeFiles/project2.dir/utils/utils.cpp.o: CMakeFiles/project2.dir/flags.make
+CMakeFiles/project2.dir/utils/utils.cpp.o: utils/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project2.dir/utils/utils.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/utils/utils.cpp.o -c /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/utils.cpp
 
-CMakeFiles/project2.dir/utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/utils.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/utils.cpp > CMakeFiles/project2.dir/utils.cpp.i
+CMakeFiles/project2.dir/utils/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/utils/utils.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/utils.cpp > CMakeFiles/project2.dir/utils/utils.cpp.i
 
-CMakeFiles/project2.dir/utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/utils.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/utils.cpp -o CMakeFiles/project2.dir/utils.cpp.s
+CMakeFiles/project2.dir/utils/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/utils/utils.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/utils.cpp -o CMakeFiles/project2.dir/utils/utils.cpp.s
 
-CMakeFiles/project2.dir/playerPayoffs.cpp.o: CMakeFiles/project2.dir/flags.make
-CMakeFiles/project2.dir/playerPayoffs.cpp.o: playerPayoffs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project2.dir/playerPayoffs.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/playerPayoffs.cpp.o -c /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/playerPayoffs.cpp
+CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.o: CMakeFiles/project2.dir/flags.make
+CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.o: payoffs/playerPayoffs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.o -c /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/playerPayoffs.cpp
 
-CMakeFiles/project2.dir/playerPayoffs.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/playerPayoffs.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/playerPayoffs.cpp > CMakeFiles/project2.dir/playerPayoffs.cpp.i
+CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/playerPayoffs.cpp > CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.i
 
-CMakeFiles/project2.dir/playerPayoffs.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/playerPayoffs.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/playerPayoffs.cpp -o CMakeFiles/project2.dir/playerPayoffs.cpp.s
+CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/playerPayoffs.cpp -o CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.s
 
-CMakeFiles/project2.dir/umpirePayoffs.cpp.o: CMakeFiles/project2.dir/flags.make
-CMakeFiles/project2.dir/umpirePayoffs.cpp.o: umpirePayoffs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project2.dir/umpirePayoffs.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/umpirePayoffs.cpp.o -c /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/umpirePayoffs.cpp
+CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.o: CMakeFiles/project2.dir/flags.make
+CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.o: payoffs/umpirePayoffs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.o -c /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/umpirePayoffs.cpp
 
-CMakeFiles/project2.dir/umpirePayoffs.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/umpirePayoffs.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/umpirePayoffs.cpp > CMakeFiles/project2.dir/umpirePayoffs.cpp.i
+CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/umpirePayoffs.cpp > CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.i
 
-CMakeFiles/project2.dir/umpirePayoffs.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/umpirePayoffs.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/umpirePayoffs.cpp -o CMakeFiles/project2.dir/umpirePayoffs.cpp.s
+CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/umpirePayoffs.cpp -o CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.s
 
 # Object files for target project2
 project2_OBJECTS = \
 "CMakeFiles/project2.dir/main.cpp.o" \
-"CMakeFiles/project2.dir/Player.cpp.o" \
-"CMakeFiles/project2.dir/Umpire.cpp.o" \
-"CMakeFiles/project2.dir/utils.cpp.o" \
-"CMakeFiles/project2.dir/playerPayoffs.cpp.o" \
-"CMakeFiles/project2.dir/umpirePayoffs.cpp.o"
+"CMakeFiles/project2.dir/agents/Player.cpp.o" \
+"CMakeFiles/project2.dir/agents/Umpire.cpp.o" \
+"CMakeFiles/project2.dir/utils/utils.cpp.o" \
+"CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.o" \
+"CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.o"
 
 # External object files for target project2
 project2_EXTERNAL_OBJECTS =
 
 project2: CMakeFiles/project2.dir/main.cpp.o
-project2: CMakeFiles/project2.dir/Player.cpp.o
-project2: CMakeFiles/project2.dir/Umpire.cpp.o
-project2: CMakeFiles/project2.dir/utils.cpp.o
-project2: CMakeFiles/project2.dir/playerPayoffs.cpp.o
-project2: CMakeFiles/project2.dir/umpirePayoffs.cpp.o
+project2: CMakeFiles/project2.dir/agents/Player.cpp.o
+project2: CMakeFiles/project2.dir/agents/Umpire.cpp.o
+project2: CMakeFiles/project2.dir/utils/utils.cpp.o
+project2: CMakeFiles/project2.dir/payoffs/playerPayoffs.cpp.o
+project2: CMakeFiles/project2.dir/payoffs/umpirePayoffs.cpp.o
 project2: CMakeFiles/project2.dir/build.make
 project2: CMakeFiles/project2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable project2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable project2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -168,6 +168,6 @@ CMakeFiles/project2.dir/clean:
 .PHONY : CMakeFiles/project2.dir/clean
 
 CMakeFiles/project2.dir/depend:
-	cd /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2 /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2 /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2 /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2 /Users/pedrorio/Code/pedrorio/sandbox/cpp/project2/CMakeFiles/project2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp /Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeFiles/project2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/project2.dir/depend
 
