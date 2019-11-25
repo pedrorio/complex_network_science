@@ -23,10 +23,10 @@ int main() {
     float b, c, f, h, a;
     a = 2, b = 0.2, c = 0.5, f = 0.2, h = 0.1;
 
-    int numberOfGenerations = 1000;
+    int numberOfGenerations = 200;
     float imitationStrength = 1.0;
 
-    float explorationProbability = 0.01;
+    float explorationProbability = 0.10;
 
     auto playersPayoff = playersPayoffMatrix(b, c, f, h, a);
     auto umpiresPayoff = umpiresPayoffMatrix(b, c, f, h, a);

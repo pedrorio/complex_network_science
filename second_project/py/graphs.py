@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # data = pd.read_csv('../cpp/output.csv', index_col="Generation")
 data = pd.read_csv('../cpp/output.csv')
-print(data)
+# print(data)
 
 # sns.relplot(x="Generation", y="OptimisticCooperator", kind="line", data=data)
 # sns.relplot(x="Generation", y="OptimisticDefector", kind="line", data=data)
