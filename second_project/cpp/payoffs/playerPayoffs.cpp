@@ -5,7 +5,7 @@
 #include "playerPayoffs.h"
 
 std::map<Umpire::Strategies, std::map<Player::Strategies, std::map<Player::Strategies, float>>>
-playersPayoffMatrix(float b, float c, float f, float h, float a) {
+playersPayoffMatrix(float b, float c, float f, float h, float a, float B) {
     return {
             {Umpire::Strategies::Honest,  {
                                                   {Player::Strategies::OptimisticCooperator,
@@ -52,8 +52,8 @@ playersPayoffMatrix(float b, float c, float f, float h, float a) {
                                                           {
                                                                   {Player::Strategies::OptimisticCooperator, b - c - f},
                                                                   {Player::Strategies::PrudentCooperator, -h},
-                                                                  {Player::Strategies::OptimisticDefector, b - f - b},
-                                                                  {Player::Strategies::PrudentDefector, b - f - b - h},
+                                                                  {Player::Strategies::OptimisticDefector, b - f - B},
+                                                                  {Player::Strategies::PrudentDefector, b - f - B - h},
                                                           }
                                                   },
                                                   {
@@ -69,16 +69,16 @@ playersPayoffMatrix(float b, float c, float f, float h, float a) {
                                                           {
                                                                   {Player::Strategies::OptimisticCooperator, -c - f},
                                                                   {Player::Strategies::PrudentCooperator, -h},
-                                                                  {Player::Strategies::OptimisticDefector, -f - b},
-                                                                  {Player::Strategies::PrudentDefector, -f - b - h},
+                                                                  {Player::Strategies::OptimisticDefector, -f - B},
+                                                                  {Player::Strategies::PrudentDefector, -f - B - h},
                                                           }
                                                   },
                                                   {Player::Strategies::PrudentDefector,
                                                           {
                                                                   {Player::Strategies::OptimisticCooperator, -c - f},
                                                                   {Player::Strategies::PrudentCooperator, -h},
-                                                                  {Player::Strategies::OptimisticDefector, -f - b},
-                                                                  {Player::Strategies::PrudentDefector, -f - b - h},
+                                                                  {Player::Strategies::OptimisticDefector, -f - B},
+                                                                  {Player::Strategies::PrudentDefector, -f - B - h},
                                                           }
                                                   },
                                           }

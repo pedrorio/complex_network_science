@@ -20,27 +20,30 @@ int main() {
 
     printHeader(outfile);
 
-    float b, c, f, h, a;
-    a = 2, b = 0.2, c = 0.5, f = 0.2, h = 0.1;
+    float b, c, f, h, a, B;
+    b = 1, c = 0.5, f = 0.2, B = 0.2, h = 0.1, a = 2;
 
-    int numberOfGenerations = 200;
-    float imitationStrength = 1.0;
 
-    float explorationProbability = 0.10;
+    int numberOfGenerations = 100000 * 3;
+    float imitationStrength = pow(10, 10);
 
-    auto playersPayoff = playersPayoffMatrix(b, c, f, h, a);
-    auto umpiresPayoff = umpiresPayoffMatrix(b, c, f, h, a);
+    float playerExplorationProbability = 0.001;
+    float umpireExplorationProbability = 0.005;
+
+
+    auto playersPayoff = playersPayoffMatrix(b, c, f, h, a, B);
+    auto umpiresPayoff = umpiresPayoffMatrix(b, c, f, h, a, B);
 
     std::map<Player::Strategies, int> playersMap = {
-            {Player::Strategies::OptimisticCooperator, 100},
-            {Player::Strategies::OptimisticDefector,   100},
-            {Player::Strategies::PrudentCooperator,    100},
-            {Player::Strategies::PrudentDefector,      100}
+            {Player::Strategies::OptimisticCooperator, 0},
+            {Player::Strategies::OptimisticDefector,   50},
+            {Player::Strategies::PrudentCooperator,    0},
+            {Player::Strategies::PrudentDefector,      0}
     };
 
     std::map<Umpire::Strategies, int> umpiresMap = {
-            {Umpire::Strategies::Corrupt, 100},
-            {Umpire::Strategies::Honest,  100}
+            {Umpire::Strategies::Corrupt, 10},
+            {Umpire::Strategies::Honest,  0}
     };
 
     std::vector<Player> players = setupPlayers(playersMap);
@@ -48,10 +51,10 @@ int main() {
     std::vector<Agents> agentSlots = setupAgentSlots(players, umpires);
 
     int numberOfPlayers = players.size();
-    float totalNumberOfPlayers = static_cast<float>(numberOfPlayers);
+    auto totalNumberOfPlayers = (float) (numberOfPlayers);
 
     int numberOfUmpires = umpires.size();
-    float totalNumberOfUmpires = static_cast<float>(numberOfUmpires);
+    auto totalNumberOfUmpires = (float) (numberOfUmpires);
 
     int totalNumberOfAgents = numberOfPlayers + numberOfUmpires;
 
@@ -71,19 +74,19 @@ int main() {
         std::map<Umpire::Strategies, int> umpiresCount = countUmpires(umpires);
 
         for (auto agent: agentSlots) {
-            float imitationRealization = random(0, 100) / 100.0;
-            float experimentationRealization = random(0, 100) / 100.0;
+            float playerImitationRealization = random(0, 100) / 100.0;
+            float umpireImitationRealization = random(0, 100) / 100.0;
+            float umpireExperimentationRealization = random(0, 100) / 100.0;
+            float playerExperimentationRealization = random(0, 100) / 100.0;
 
             if (agent == Agents::Umpire) {
                 Umpire &umpire = umpires[umpireIndex];
 
-                if (experimentationRealization < explorationProbability) {
-                    std::vector<Umpire> umpiresWithOtherStrategies = getUmpiresWithOtherStrategies(umpires, umpire);
-                    Umpire &otherUmpire = umpiresWithOtherStrategies[random(0, umpiresWithOtherStrategies.size() - 1)];
-                    umpire = otherUmpire;
-
+                if (umpireExperimentationRealization < umpireExplorationProbability) {
+                    Umpire::Strategies otherStrategy = getOtherUmpireStrategy(umpire.strategy, umpiresCount);
                     umpiresCount[umpire.strategy]--;
-                    umpiresCount[otherUmpire.strategy]++;
+                    umpiresCount[otherStrategy]++;
+                    umpire.strategy = otherStrategy;
                 } else {
                     int otherUmpireIndex = randomElement(otherIndexes(selectedUmpireIndexes, umpireIndexes));
                     Umpire &otherUmpire = umpires[otherUmpireIndex];
@@ -97,10 +100,10 @@ int main() {
                     float umpireImitationProbability = imitationProbability(imitationStrength, fitnessUmpire,
                                                                             fitnessOtherUmpire);
 
-                    if (imitationRealization < (1 - explorationProbability) * umpireImitationProbability) {
-                        umpire = otherUmpire;
+                    if (umpireImitationRealization < umpireImitationProbability) {
                         umpiresCount[umpire.strategy]--;
                         umpiresCount[otherUmpire.strategy]++;
+                        umpire = otherUmpire;
                     }
                 }
 
@@ -108,13 +111,12 @@ int main() {
             } else if (agent == Agents::Player) {
                 Player &player = players[playerIndex];
 
-                if (experimentationRealization < explorationProbability) {
-                    std::vector<Player> playersWithOtherStrategies = getPlayersWithOtherStrategies(players, player);
-                    Player &otherPlayer = playersWithOtherStrategies[random(0, playersWithOtherStrategies.size() - 1)];
+                if (playerExperimentationRealization < playerExplorationProbability) {
 
-                    player = otherPlayer;
-                    playersCount[player.strategy]++;
-                    playersCount[otherPlayer.strategy]--;
+                    Player::Strategies otherplayerStrategy = getOtherPlayerStrategy(player.strategy, playersCount);
+                    playersCount[player.strategy]--;
+                    playersCount[otherplayerStrategy]++;
+                    player.strategy = otherplayerStrategy;
                 } else {
                     int otherPlayerIndex = randomElement(otherIndexes(selectedPlayerIndexes, playerIndexes));
                     Player &otherPlayer = players[otherPlayerIndex];
@@ -129,10 +131,10 @@ int main() {
                     float playerImitationProbability = imitationProbability(imitationStrength, fitnessPlayer,
                                                                             fitnessOtherPlayer);
 
-                    if (imitationRealization < (1 - explorationProbability) * playerImitationProbability) {
-                        player = otherPlayer;
+                    if (playerImitationRealization < playerImitationProbability) {
                         playersCount[player.strategy]--;
                         playersCount[otherPlayer.strategy]++;
+                        player = otherPlayer;
                     }
                 }
 
@@ -141,10 +143,10 @@ int main() {
         }
 
         shuffleAgents(umpires, players, agentSlots);
-//        if (generation % 10 == 0) {
+        if (generation % 1000 == 0) {
             printFrequencies(outfile, playersCount, totalNumberOfPlayers, umpiresCount, totalNumberOfUmpires,
                              generation);
-//        }
+        }
     }
 
     outfile.close();

@@ -13,6 +13,6 @@ std::map<Umpire::Strategies,
         std::map<Player::Strategies,
                 std::map<Player::Strategies, float>
         >
-> umpiresPayoffMatrix(float b, float c, float f, float h, float a);
+> umpiresPayoffMatrix(float b, float c, float f, float h, float a, float B);
 
 #endif //PROJECT2_UMPIREPAYOFFS_H

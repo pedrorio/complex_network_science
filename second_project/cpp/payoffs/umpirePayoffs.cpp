@@ -8,7 +8,7 @@ std::map<Umpire::Strategies,
         std::map<Player::Strategies,
                 std::map<Player::Strategies, float>
         >
-> umpiresPayoffMatrix(float b, float c, float f, float h, float a) {
+> umpiresPayoffMatrix(float b, float c, float f, float h, float a, float B) {
     return {
             {Umpire::Strategies::Honest,  {
                                                   {Player::Strategies::OptimisticCooperator,
@@ -51,8 +51,8 @@ std::map<Umpire::Strategies,
                                                           {
                                                                   {Player::Strategies::OptimisticCooperator, 2 * f},
                                                                   {Player::Strategies::PrudentCooperator, 0.0},
-                                                                  {Player::Strategies::OptimisticDefector, 2 * f + b},
-                                                                  {Player::Strategies::PrudentDefector, 2 * f + b},
+                                                                  {Player::Strategies::OptimisticDefector, 2 * f + B},
+                                                                  {Player::Strategies::PrudentDefector, 2 * f + B},
                                                           }
                                                   },
                                                   {
@@ -66,20 +66,20 @@ std::map<Umpire::Strategies,
                                                   },
                                                   {Player::Strategies::OptimisticDefector,
                                                           {
-                                                                  {Player::Strategies::OptimisticCooperator, 2 * f + b},
+                                                                  {Player::Strategies::OptimisticCooperator, 2 * f + B},
                                                                   {Player::Strategies::PrudentCooperator, 0.0},
                                                                   {Player::Strategies::OptimisticDefector, 2 * f +
-                                                                                                           2 * b},
-                                                                  {Player::Strategies::PrudentDefector, 2 * f + 2 * b},
+                                                                                                           2 * B},
+                                                                  {Player::Strategies::PrudentDefector, 2 * f + 2 * B},
                                                           }
                                                   },
                                                   {Player::Strategies::PrudentDefector,
                                                           {
-                                                                  {Player::Strategies::OptimisticCooperator, 2 * f + b},
+                                                                  {Player::Strategies::OptimisticCooperator, 2 * f + B},
                                                                   {Player::Strategies::PrudentCooperator, 0.0},
                                                                   {Player::Strategies::OptimisticDefector, 2 * f +
-                                                                                                           2 * b},
-                                                                  {Player::Strategies::PrudentDefector, 2 * f + 2 * b},
+                                                                                                           2 * B},
+                                                                  {Player::Strategies::PrudentDefector, 2 * f + 2 * B},
                                                           }
                                                   },
                                           }
