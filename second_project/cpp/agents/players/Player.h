@@ -5,6 +5,8 @@
 #ifndef PROJECT2_PLAYER_H
 #define PROJECT2_PLAYER_H
 
+#include <map>
+
 class Player {
 public:
     enum class Strategies {
@@ -14,11 +16,13 @@ public:
         PrudentDefector,
         Last = PrudentDefector
     };
+
     Strategies strategy;
 
     Player(Strategies strategy) {
         this->strategy = strategy;
     }
+
 };
 
 #endif //PROJECT2_PLAYER_H

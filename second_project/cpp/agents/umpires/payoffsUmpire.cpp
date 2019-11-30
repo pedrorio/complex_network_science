@@ -2,7 +2,7 @@
 // Created by Pedro Rio on 21/11/2019.
 //
 
-#include "umpirePayoffs.h"
+#include "payoffsUmpire.h"
 
 std::map<Umpire::Strategies,
         std::map<Player::Strategies,

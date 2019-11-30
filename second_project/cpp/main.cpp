@@ -3,19 +3,46 @@
 #include <map>
 #include <fstream>
 #include <variant>
+#include <sys/stat.h>
+#include <sstream>
 
-#include "agents/Player.h"
-#include "agents/Umpire.h"
-
-#include "payoffs/playerPayoffs.h"
-#include "payoffs/umpirePayoffs.h"
+#include "agents/players/Player.h"
+#include "agents/umpires/Umpire.h"
+#include "agents/players/payoffsPlayer.h"
+#include "agents/umpires/payoffsUmpire.h"
+#include "agents/fitness.h"
 
 #include "utils/utils.h"
+#include "utils/logs.h"
+#include "utils/counts.h"
+#include "utils/other.h"
+#include "utils/imitationProbabilities.h"
 
 int main() {
     std::cout << "Start program." << std::endl;
+
+    std::time_t time_t = std::time(nullptr);
+    std::tm tm = *std::localtime(&time_t);
+
+    std::stringstream directoryStream;
+    directoryStream << "../simulations/" << std::put_time(&tm, "%H-%M-%S-%d-%m-%Y");
+
+    std::string directoryPath;
+    directoryPath = directoryStream.str();
+
+    std::stringstream systemCommandStream;
+
+    std::string systemCommand;
+    systemCommand = systemCommandStream.str();
+
+    int totalCharactersInSystemCommand = systemCommand.length();
+    char charactersInSystemCommand[totalCharactersInSystemCommand + 1];
+    strcpy(charactersInSystemCommand, systemCommand.c_str());
+
+    system(charactersInSystemCommand);
+
     std::ofstream outfile;
-    std::string fileName = "output.csv";
+    std::string fileName = directoryPath + "/" + "output.csv";
     outfile.open(fileName);
 
     printHeader(outfile);
@@ -23,13 +50,11 @@ int main() {
     float b, c, f, h, a, B;
     b = 1, c = 0.5, f = 0.2, B = 0.2, h = 0.1, a = 2;
 
-
-    int numberOfGenerations = 100000 * 3;
+    int numberOfGenerations = pow(10, 5);
     float imitationStrength = pow(10, 10);
 
     float playerExplorationProbability = 0.001;
     float umpireExplorationProbability = 0.005;
-
 
     auto playersPayoff = playersPayoffMatrix(b, c, f, h, a, B);
     auto umpiresPayoff = umpiresPayoffMatrix(b, c, f, h, a, B);
@@ -62,6 +87,12 @@ int main() {
     auto umpireIndexes = range(0, numberOfUmpires - 1);
     auto agentIndexes = range(0, totalNumberOfAgents - 1);
 
+    std::map<Player::Strategies, int> initialPlayersCount = countPlayers(players);
+    std::map<Umpire::Strategies, int> initialUmpiresCount = countUmpires(umpires);
+
+    printFrequencies(outfile, initialPlayersCount, totalNumberOfPlayers, initialUmpiresCount, totalNumberOfUmpires,
+                         0, b, c, f, h, a, B, playerExplorationProbability, umpireExplorationProbability, imitationStrength);
+
     for (auto generation: range(1, numberOfGenerations)) {
 
         int umpireIndex = 0;
@@ -82,8 +113,15 @@ int main() {
             if (agent == Agents::Umpire) {
                 Umpire &umpire = umpires[umpireIndex];
 
-                if (umpireExperimentationRealization < umpireExplorationProbability) {
+                if (umpireExperimentationRealization > umpireExplorationProbability) {
                     Umpire::Strategies otherStrategy = getOtherUmpireStrategy(umpire.strategy, umpiresCount);
+//                    int otherUmpireIndex = getUmpireIndexFromOtherStrategies(umpires, umpireIndexes, otherStrategy);
+//                    Umpire &otherUmpire = umpires[otherUmpireIndex];
+
+//                    umpiresCount[umpire.strategy]++;
+//                    umpiresCount[otherStrategy]--;
+//                    otherUmpire = umpire;
+
                     umpiresCount[umpire.strategy]--;
                     umpiresCount[otherStrategy]++;
                     umpire.strategy = otherStrategy;
@@ -97,10 +135,25 @@ int main() {
                     float fitnessOtherUmpire = umpireFitness(otherUmpire, totalNumberOfUmpires, umpiresPayoff,
                                                              totalNumberOfPlayers, umpiresCount,
                                                              playersCount);
+
+//                    float fitnessPopulationUmpire = umpirePopulationFitness(totalNumberOfUmpires, umpiresPayoff, totalNumberOfPlayers, umpiresCount, playersCount);
+
+//                    float umpireImitationProbability = imitationProbability(imitationStrength, fitnessUmpire,
+//                                                                            fitnessPopulationUmpire);
+
                     float umpireImitationProbability = imitationProbability(imitationStrength, fitnessUmpire,
                                                                             fitnessOtherUmpire);
 
                     if (umpireImitationRealization < umpireImitationProbability) {
+
+//                        int otherUmpireIndex = randomElement(otherIndexes(selectedUmpireIndexes, umpireIndexes));
+//                        Umpire &otherUmpire = umpires[otherUmpireIndex];
+
+//                        umpiresCount[umpire.strategy]++;
+//                        umpiresCount[otherUmpire.strategy]--;
+//                        otherUmpire = umpire;
+
+
                         umpiresCount[umpire.strategy]--;
                         umpiresCount[otherUmpire.strategy]++;
                         umpire = otherUmpire;
@@ -113,28 +166,53 @@ int main() {
 
                 if (playerExperimentationRealization < playerExplorationProbability) {
 
-                    Player::Strategies otherplayerStrategy = getOtherPlayerStrategy(player.strategy, playersCount);
+                    Player::Strategies otherStrategy = getOtherPlayerStrategy(player.strategy, playersCount);
+
+//                    Player otherPlayer = getPlayerIndexFromOtherStrategies(players, otherStrategy);
+//                    int otherPlayerIndex = getPlayerIndexFromOtherStrategies(players, playerIndexes, otherStrategy);
+//                    Player &otherPlayer = players[otherPlayerIndex];
+
+//                    playersCount[player.strategy]++;
+//                    playersCount[otherStrategy]--;
+//                    otherPlayer.strategy = player.strategy;
+
                     playersCount[player.strategy]--;
-                    playersCount[otherplayerStrategy]++;
-                    player.strategy = otherplayerStrategy;
+                    playersCount[otherStrategy]++;
+                    player.strategy = otherStrategy;
                 } else {
-                    int otherPlayerIndex = randomElement(otherIndexes(selectedPlayerIndexes, playerIndexes));
-                    Player &otherPlayer = players[otherPlayerIndex];
+//                    int otherPlayerIndex = randomElement(otherIndexes(selectedPlayerIndexes, playerIndexes));
+//                    Player &otherPlayer = players[otherPlayerIndex];
 
                     float fitnessPlayer = playerFitness(player, totalNumberOfPlayers,
                                                         playersPayoff, totalNumberOfUmpires, playersCount,
                                                         umpiresCount);
-                    float fitnessOtherPlayer = playerFitness(otherPlayer, totalNumberOfPlayers,
-                                                             playersPayoff, totalNumberOfUmpires, playersCount,
-                                                             umpiresCount);
+
+//                    float fitnessOtherPlayer = playerFitness(otherPlayer, totalNumberOfPlayers,
+//                                                             playersPayoff, totalNumberOfUmpires, playersCount,
+//                                                             umpiresCount);
+
+                    float fitnessPopulationPlayer = playerPopulationFitness(totalNumberOfPlayers, playersPayoff,
+                                                                            totalNumberOfUmpires, playersCount,
+                                                                            umpiresCount);
+
+//                    float playerImitationProbability = imitationProbability(imitationStrength, fitnessPlayer,
+//                                                                            fitnessOtherPlayer);
 
                     float playerImitationProbability = imitationProbability(imitationStrength, fitnessPlayer,
-                                                                            fitnessOtherPlayer);
+                                                                            fitnessPopulationPlayer);
 
                     if (playerImitationRealization < playerImitationProbability) {
-                        playersCount[player.strategy]--;
-                        playersCount[otherPlayer.strategy]++;
-                        player = otherPlayer;
+
+                        int otherPlayerIndex = randomElement(otherIndexes(selectedPlayerIndexes, playerIndexes));
+                        Player &otherPlayer = players[otherPlayerIndex];
+
+                        playersCount[player.strategy]++;
+                        playersCount[otherPlayer.strategy]--;
+                        otherPlayer = player;
+
+//                        playersCount[player.strategy]--;
+//                        playersCount[otherPlayer.strategy]++;
+//                        player = otherPlayer;
                     }
                 }
 
@@ -143,9 +221,9 @@ int main() {
         }
 
         shuffleAgents(umpires, players, agentSlots);
-        if (generation % 1000 == 0) {
-            printFrequencies(outfile, playersCount, totalNumberOfPlayers, umpiresCount, totalNumberOfUmpires,
-                             generation);
+        if (generation % 25 == 0) {
+            printFrequencies(outfile, initialPlayersCount, totalNumberOfPlayers, initialUmpiresCount, totalNumberOfUmpires,
+                             0, b, c, f, h, a, B, playerExplorationProbability, umpireExplorationProbability, imitationStrength);
         }
     }
 

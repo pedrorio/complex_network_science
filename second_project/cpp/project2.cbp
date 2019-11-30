@@ -80,31 +80,73 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Player.cpp">
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/agents.cpp">
 			<Option target="project2"/>
 		</Unit>
-		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Player.h">
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/agents.h">
 			<Option target="project2"/>
 		</Unit>
-		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Umpire.cpp">
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/fitness.cpp">
 			<Option target="project2"/>
 		</Unit>
-		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/Umpire.h">
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/fitness.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/players/Player.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/players/Player.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/players/payoffsPlayer.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/players/payoffsPlayer.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/umpires/Umpire.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/umpires/Umpire.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/umpires/payoffsUmpire.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/umpires/payoffsUmpire.h">
 			<Option target="project2"/>
 		</Unit>
 		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/main.cpp">
 			<Option target="project2"/>
 		</Unit>
-		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/playerPayoffs.cpp">
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/counts.cpp">
 			<Option target="project2"/>
 		</Unit>
-		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/playerPayoffs.h">
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/counts.h">
 			<Option target="project2"/>
 		</Unit>
-		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/umpirePayoffs.cpp">
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/imitationProbabilities.cpp">
 			<Option target="project2"/>
 		</Unit>
-		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/payoffs/umpirePayoffs.h">
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/imitationProbabilities.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/logs.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/logs.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/other.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/other.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/random.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/random.h">
 			<Option target="project2"/>
 		</Unit>
 		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/utils.cpp">
