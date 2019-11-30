@@ -91,7 +91,8 @@ int main() {
     std::map<Umpire::Strategies, int> initialUmpiresCount = countUmpires(umpires);
 
     printFrequencies(outfile, initialPlayersCount, totalNumberOfPlayers, initialUmpiresCount, totalNumberOfUmpires,
-                         0, b, c, f, h, a, B, playerExplorationProbability, umpireExplorationProbability, imitationStrength);
+                     0, b, c, f, h, a, B, playerExplorationProbability, umpireExplorationProbability, imitationStrength,
+                     numberOfGenerations);
 
     for (auto generation: range(1, numberOfGenerations)) {
 
@@ -221,9 +222,10 @@ int main() {
         }
 
         shuffleAgents(umpires, players, agentSlots);
-        if (generation % 25 == 0) {
-            printFrequencies(outfile, initialPlayersCount, totalNumberOfPlayers, initialUmpiresCount, totalNumberOfUmpires,
-                             0, b, c, f, h, a, B, playerExplorationProbability, umpireExplorationProbability, imitationStrength);
+        if (generation % 1000 == 0) {
+            printFrequencies(outfile, playersCount, totalNumberOfPlayers, umpiresCount, totalNumberOfUmpires,
+                             generation, b, c, f, h, a, B, playerExplorationProbability, umpireExplorationProbability,
+                             imitationStrength, numberOfGenerations);
         }
     }
 

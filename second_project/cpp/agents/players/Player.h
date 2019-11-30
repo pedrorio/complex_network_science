@@ -5,8 +5,6 @@
 #ifndef PROJECT2_PLAYER_H
 #define PROJECT2_PLAYER_H
 
-#include <map>
-
 class Player {
 public:
     enum class Strategies {

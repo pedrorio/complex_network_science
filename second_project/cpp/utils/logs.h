@@ -19,7 +19,7 @@ void printFrequencies(std::ofstream &outfile,
                       float totalUmpires,
                       int generation, float b, float c, float f, float h, float a, float B,
                       float playerExplorationProbability, float umpireExplorationProbability,
-                      float imitationStrength);
+                      float imitationStrength, int numberOfGenerations);
 
 void printHeader(std::ofstream &outfile);
 

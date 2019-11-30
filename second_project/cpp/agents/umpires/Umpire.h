@@ -5,8 +5,6 @@
 #ifndef PROJECT2_UMPIRE_H
 #define PROJECT2_UMPIRE_H
 
-#include <map>
-
 class Umpire {
 
 public:

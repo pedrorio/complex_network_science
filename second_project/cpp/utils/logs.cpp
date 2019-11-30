@@ -11,28 +11,37 @@ void printFrequencies(std::ofstream &outfile,
                       float totalUmpires,
                       int generation, float b, float c, float f, float h, float a, float B,
                       float playerExplorationProbability, float umpireExplorationProbability,
-                      float imitationStrength) {
+                      float imitationStrength, int numberOfGenerations) {
+
+    float completion = (generation / float(numberOfGenerations) * 100);
 
     std::cout << generation;
     outfile << generation;
 
+    std::cout << std::fixed;
+    std::cout << std::setprecision(4);
+
+    outfile << std::fixed;
+    outfile << std::setprecision(4);
+
     for (const auto &entry: playersCount) {
         float playerFrequency = entry.second / totalPlayers;
-        std::cout << "," << std::setprecision(2) << playerFrequency;
-        outfile << "," << std::setprecision(2) << playerFrequency;
+        std::cout << "," << playerFrequency;
+        outfile << "," << playerFrequency;
     }
 
     for (const auto &entry: umpiresCount) {
         float umpireFrequency = entry.second / totalUmpires;
-        std::cout << "," << std::setprecision(2) << umpireFrequency;
-        outfile << "," << std::setprecision(2) << umpireFrequency;
+        std::cout << "," << umpireFrequency;
+        outfile << "," << umpireFrequency;
     }
 
     std::cout << "," << b << "," << c << "," << f << "," << h << "," << a << "," << B << ","
-              << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength;
+              << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength
+              << "," << completion << '%';
     outfile << "," << b << "," << c << "," << f << "," << h << "," << a << "," << B << ","
-            << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength;
-
+            << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength
+            << "," << completion << '%';
 
     std::cout << std::endl;
     outfile << std::endl;
@@ -45,20 +54,22 @@ void printHeader(std::ofstream &outfile) {
 
     for (const auto &entry: playerStrings) {
         std::string playerString = entry.second;
-        std::cout << "," << std::setprecision(2) << playerString;
-        outfile << "," << std::setprecision(2) << playerString;
+        std::cout << "," << playerString;
+        outfile << "," << playerString;
     }
 
     for (const auto &entry: umpireStrings) {
         std::string umpireString = entry.second;
-        std::cout << "," << std::setprecision(2) << umpireString;
-        outfile << "," << std::setprecision(2) << umpireString;
+        std::cout << "," << umpireString;
+        outfile << "," << umpireString;
     }
 
     std::cout << "," << "b" << "," << "c" << "," << "f" << "," << "h" << "," << "a" << "," << "B" << ","
-            << "playerExplorationProbability" << "umpireExplorationProbability" << "imitationStrength";
+              << "playerExplorationProbability" << "," << "umpireExplorationProbability" << "," << "imitationStrength"
+              << "," << "Completion";
     outfile << "," << "b" << "," << "c" << "," << "f" << "," << "h" << "," << "a" << "," << "B" << ","
-            << "playerExplorationProbability" << "," << "umpireExplorationProbability" << "," << "imitationStrength";
+            << "playerExplorationProbability" << "," << "umpireExplorationProbability" << "," << "imitationStrength"
+            << "," << "Completion";
 
     std::cout << std::endl;
     outfile << std::endl;
