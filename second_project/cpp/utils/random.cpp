@@ -1,11 +1,20 @@
 #include <iostream>
 #include "random.h"
 
-std::random_device rnd;
-std::mt19937 generator(rnd());
+namespace Random {
+    std::mt19937_64 generator{static_cast<std::mt19937::result_type>(std::time(nullptr))};
+}
+
+std::random_device seed;
+static std::mt19937_64 generator(seed());
+
+int random(int begin, int end) {
+    std::uniform_int_distribution<int> distribution(begin, end);
+//    return distribution(Random::generator);
+    return distribution(generator);
+}
 
 std::vector<int> randomElements(std::vector<int> otherPlayerIndexes, int number) {
-
     std::vector<int> sampleIndexes;
     std::sample(otherPlayerIndexes.begin(), otherPlayerIndexes.end(), std::back_inserter(sampleIndexes), number,
                 generator);
@@ -15,11 +24,6 @@ std::vector<int> randomElements(std::vector<int> otherPlayerIndexes, int number)
 
 int randomElement(std::vector<int> otherPlayerIndexes) {
     return randomElements(std::move(otherPlayerIndexes), 1)[0];
-}
-
-int random(int begin, int end) {
-    std::uniform_int_distribution<int> distribution(begin, end);
-    return distribution(generator);
 }
 
 void shuffleAgents(std::vector<Umpire> &umpires, std::vector<Player> &players, std::vector<Agents> &agentSlots) {

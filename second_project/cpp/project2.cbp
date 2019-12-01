@@ -11,30 +11,30 @@
 				<Option working_dir="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="project2">
@@ -43,19 +43,12 @@
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
+				<Compiler/>
 				<MakeCommands>
-					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 project2"/>
-					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 project2"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="project2/fast">
@@ -64,19 +57,12 @@
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
+				<Compiler/>
 				<MakeCommands>
-					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 project2/fast"/>
-					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 project2/fast"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>

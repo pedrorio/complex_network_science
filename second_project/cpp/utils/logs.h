@@ -16,11 +16,14 @@ void printFrequencies(std::ofstream &outfile,
                       std::map<Player::Strategies, int> &playersCount,
                       float totalPlayers,
                       std::map<Umpire::Strategies, int> &umpiresCount,
-                      float totalUmpires,
-                      int generation, float b, float c, float f, float h, float a, float B,
-                      float playerExplorationProbability, float umpireExplorationProbability,
-                      float imitationStrength, int numberOfGenerations);
+                      float totalUmpires, int generation, int numberOfGenerations);
 
 void printHeader(std::ofstream &outfile);
+
+void printParams(std::ofstream &outfile, float b, float c, float f, float h, float a, float B,
+                 float playerExplorationProbability, float umpireExplorationProbability,
+                 float imitationStrength);
+
+void printParamHeaders(std::ofstream &outfile);
 
 #endif //PROJECT2_LOGS_H

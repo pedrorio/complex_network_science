@@ -7,6 +7,7 @@
 
 #include <map>
 #include <cmath>
+#include <ctime>
 #include <random>
 #include "../agents/players/Player.h"
 #include "../agents/umpires/Umpire.h"

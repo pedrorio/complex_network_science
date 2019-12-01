@@ -18,4 +18,5 @@ add_executable(
         utils/imitationProbabilities.cpp utils/imitationProbabilities.h
         utils/other.cpp utils/other.h
         utils/logs.cpp utils/logs.h
-        )
+#        example.h example.cpp
+)
