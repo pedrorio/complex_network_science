@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include <variant>
 #include <sys/stat.h>
 #include <sstream>
 #include <fstream>
@@ -18,7 +17,6 @@
 #include "utils/other.h"
 #include "utils/imitationProbabilities.h"
 
-//#include "example.h"
 
 int main() {
     std::cout << "Start program." << std::endl;
@@ -38,7 +36,7 @@ int main() {
 
     system(charactersInSystemCommand);
 
-    int timeStep = 1000;
+    int timeStep = 10000;
 
     float b, c, f, h, a, B;
     b = 1, c = f = 0.5, B = 0.2, h = 0.1, a = 2;
@@ -117,9 +115,6 @@ int main() {
             playerImitationRealization = umpireImitationRealization = random(0, 100) / 100.0;
             playerExperimentationRealization = umpireExperimentationRealization = random(0, 100) / 100.0;
 
-//            std::cout << playerExperimentationRealization << std::endl;
-//            std::cout << playerImitationRealization << std::endl;
-
             if (agent == Agents::Umpire) {
                 Umpire &umpire = umpires[umpireIndex];
 
@@ -132,15 +127,6 @@ int main() {
                     float fitnessUmpire = umpireFitness(umpire, totalNumberOfUmpires, umpiresPayoff,
                                                         totalNumberOfPlayers, umpiresCount,
                                                         playersCount);
-
-//                    int otherUmpireIndex = randomElement(otherIndexes(selectedUmpireIndexes, umpireIndexes));
-//                    Umpire &otherUmpire = umpires[otherUmpireIndex];
-//                    float fitnessOtherUmpire = umpireFitness(otherUmpire, totalNumberOfUmpires, umpiresPayoff,
-//                                                             totalNumberOfPlayers, umpiresCount,
-//                                                             playersCount);
-//                    float umpireImitationProbability = imitationProbability(imitationStrength, fitnessUmpire,
-//                                                                            fitnessOtherUmpire);
-
                     float fitnessPopulationUmpire = umpirePopulationFitness(totalNumberOfUmpires, umpiresPayoff, totalNumberOfPlayers, umpiresCount, playersCount);
                     float umpireImitationProbability = imitationProbability(imitationStrength, fitnessUmpire,
                                                                             fitnessPopulationUmpire);
@@ -152,10 +138,6 @@ int main() {
                         umpiresCount[umpire.strategy]++;
                         umpiresCount[otherUmpire.strategy]--;
                         otherUmpire = umpire;
-
-//                        umpiresCount[umpire.strategy]--;
-//                        umpiresCount[otherUmpire.strategy]++;
-//                        umpire = otherUmpire;
                     }
                 }
 
@@ -169,17 +151,6 @@ int main() {
                     playersCount[otherStrategy]++;
                     player.strategy = otherStrategy;
                 } else {
-//                    int otherPlayerIndex = randomElement(otherIndexes(selectedPlayerIndexes, playerIndexes));
-//                    Player &otherPlayer = players[otherPlayerIndex];
-//                    float fitnessOtherPlayer = playerFitness(otherPlayer, totalNumberOfPlayers,
-//                                                             playersPayoff, totalNumberOfUmpires, playersCount,
-//                                                             umpiresCount);
-//                    float fitnessPlayer = playerFitness(player, totalNumberOfPlayers, playersPayoff,
-//                                                        totalNumberOfUmpires, playersCount,
-//                                                        umpiresCount);
-//                    float playerImitationProbability = imitationProbability(imitationStrength, fitnessPlayer,
-//                                                                            fitnessOtherPlayer);
-
                     float fitnessPlayer = playerFitness(player, totalNumberOfPlayers,
                                                         playersPayoff, totalNumberOfUmpires, playersCount,
                                                         umpiresCount);
@@ -190,17 +161,12 @@ int main() {
                                                                             fitnessPopulationPlayer);
 
                     if (playerImitationRealization < playerImitationProbability) {
-
                         int otherPlayerIndex = randomElement(otherIndexes(selectedPlayerIndexes, playerIndexes));
                         Player &otherPlayer = players[otherPlayerIndex];
 
                         playersCount[player.strategy]++;
                         playersCount[otherPlayer.strategy]--;
                         otherPlayer = player;
-
-//                        playersCount[player.strategy]--;
-//                        playersCount[otherPlayer.strategy]++;
-//                        player = otherPlayer;
                     }
                 }
 

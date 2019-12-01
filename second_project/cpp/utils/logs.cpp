@@ -58,17 +58,17 @@ void printParamHeaders(std::ofstream &outfile) {
               << "playerExplorationProbability" << "," << "umpireExplorationProbability" << "," << "imitationStrength"
               << std::endl;
     outfile << "b" << "," << "c" << "," << "f" << "," << "h" << "," << "a" << "," << "B" << ","
-            << "playerExplorationProbability" << "," << "umpireExplorationProbability" << ","
-            << "imitationStrength << std::endl";
+            << "playerExplorationProbability" << "," << "umpireExplorationProbability" << "," << "imitationStrength"
+            << std::endl;
 }
 
 void printParams(std::ofstream &outfile, float b, float c, float f, float h, float a, float B,
                  float playerExplorationProbability, float umpireExplorationProbability,
                  float imitationStrength) {
-    std::cout << "," << b << "," << c << "," << f << "," << h << "," << a << "," << B << ","
+    std::cout << b << "," << c << "," << f << "," << h << "," << a << "," << B << ","
               << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength
               << std::endl;
-    outfile << "," << b << "," << c << "," << f << "," << h << "," << a << "," << B << ","
+    outfile << b << "," << c << "," << f << "," << h << "," << a << "," << B << ","
             << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength
             << std::endl;
 }
