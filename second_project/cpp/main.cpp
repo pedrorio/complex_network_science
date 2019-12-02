@@ -36,16 +36,21 @@ int main() {
 
     system(charactersInSystemCommand);
 
-    int timeStep = 10000;
+    int timeStep = 1000;
 
     float b, c, f, h, a, B;
     b = 1, c = f = 0.5, B = 0.2, h = 0.1, a = 2;
 
-    int numberOfGenerations = pow(10, 5) * 3;
-    float imitationStrength = pow(10, 10);
+//    int numberOfGenerations = pow(10, 5) * 1;
+//    float imitationStrength = pow(10, 10);
+//    float playerExplorationProbability = 0.001;
+//    float umpireExplorationProbability = 0.005;
 
-    float playerExplorationProbability = 0.001;
-    float umpireExplorationProbability = 0.005;
+    int numberOfGenerations = pow(10, 5) * 1;
+//    int numberOfGenerations = pow(10, 6) * 1;
+    float imitationStrength = 0.3;
+    float playerExplorationProbability = 0.01;
+    float umpireExplorationProbability = 0.05;
 
     std::ofstream paramFile;
     std::string paramFileName = directoryPath + "/" + "params.csv";
@@ -63,16 +68,28 @@ int main() {
     auto playersPayoff = playersPayoffMatrix(b, c, f, h, a, B);
     auto umpiresPayoff = umpiresPayoffMatrix(b, c, f, h, a, B);
 
+//    std::map<Player::Strategies, int> playersMap = {
+//            {Player::Strategies::OptimisticCooperator, 0},
+//            {Player::Strategies::OptimisticDefector,   50},
+//            {Player::Strategies::PrudentCooperator,    0},
+//            {Player::Strategies::PrudentDefector,      0}
+//    };
+//
+//    std::map<Umpire::Strategies, int> umpiresMap = {
+//            {Umpire::Strategies::Corrupt, 10},
+//            {Umpire::Strategies::Honest,  0}
+//    };
+
     std::map<Player::Strategies, int> playersMap = {
             {Player::Strategies::OptimisticCooperator, 0},
-            {Player::Strategies::OptimisticDefector,   50},
+            {Player::Strategies::OptimisticDefector,   500},
             {Player::Strategies::PrudentCooperator,    0},
             {Player::Strategies::PrudentDefector,      0}
     };
 
     std::map<Umpire::Strategies, int> umpiresMap = {
-            {Umpire::Strategies::Corrupt, 10},
-            {Umpire::Strategies::Honest,  0}
+            {Umpire::Strategies::Corrupt, 0},
+            {Umpire::Strategies::Honest,  100}
     };
 
     std::vector<Player> players = setupPlayers(playersMap);
@@ -109,12 +126,15 @@ int main() {
         std::map<Player::Strategies, int> playersCount = countPlayers(players);
         std::map<Umpire::Strategies, int> umpiresCount = countUmpires(umpires);
 
+        // TODO: Can be parallel
         for (auto agent: agentSlots) {
 
+            // TODO: Can be a transform
             float playerImitationRealization, umpireImitationRealization, playerExperimentationRealization, umpireExperimentationRealization;
             playerImitationRealization = umpireImitationRealization = random(0, 100) / 100.0;
             playerExperimentationRealization = umpireExperimentationRealization = random(0, 100) / 100.0;
 
+            // TODO: Does not need to be sequential
             if (agent == Agents::Umpire) {
                 Umpire &umpire = umpires[umpireIndex];
 
@@ -124,23 +144,36 @@ int main() {
                     umpiresCount[otherStrategy]++;
                     umpire.strategy = otherStrategy;
                 } else {
+
+                    // TODO: Can be a transform
                     float fitnessUmpire = umpireFitness(umpire, totalNumberOfUmpires, umpiresPayoff,
                                                         totalNumberOfPlayers, umpiresCount,
                                                         playersCount);
-                    float fitnessPopulationUmpire = umpirePopulationFitness(totalNumberOfUmpires, umpiresPayoff, totalNumberOfPlayers, umpiresCount, playersCount);
+                    // TODO: Computed once per generation
+                    float fitnessPopulationUmpire = umpirePopulationFitness(totalNumberOfUmpires, umpiresPayoff,
+                                                                            totalNumberOfPlayers, umpiresCount,
+                                                                            playersCount);
+                    // TODO: Can be a transform
                     float umpireImitationProbability = imitationProbability(imitationStrength, fitnessUmpire,
                                                                             fitnessPopulationUmpire);
 
+                    // TODO: Can be a transform
                     if (umpireImitationRealization < umpireImitationProbability) {
                         int otherUmpireIndex = randomElement(otherIndexes(selectedUmpireIndexes, umpireIndexes));
                         Umpire &otherUmpire = umpires[otherUmpireIndex];
 
+                        // TODO: Can be a transform
                         umpiresCount[umpire.strategy]++;
                         umpiresCount[otherUmpire.strategy]--;
                         otherUmpire = umpire;
+
+                        // TODO: Counts go to a plus and a minus vector
+                        // TODO: New strategies go to a new vector
+                        // TODO: Substitution occurs
                     }
                 }
 
+                // TODO: Not needed
                 umpireIndex++;
             } else if (agent == Agents::Player) {
                 Player &player = players[playerIndex];
@@ -174,6 +207,7 @@ int main() {
             }
         }
 
+        // TODO: Not needed
         shuffleAgents(umpires, players, agentSlots);
         if (generation % timeStep == 0) {
             printFrequencies(dataFile, playersCount, totalNumberOfPlayers, umpiresCount, totalNumberOfUmpires,
@@ -183,5 +217,8 @@ int main() {
 
     dataFile.close();
     std::cout << "End program." << std::endl;
+
+    std::cout << time_t;
+
     return 0;
 }

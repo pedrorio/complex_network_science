@@ -1,10 +1,21 @@
+#!/usr/bin/env python3
+
 import os
+import sys
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import EngFormatter
+import argparse
+
+parser = argparse.ArgumentParser(description='A program to produce the second project graphs')
+parser.add_argument('--dirName', action='store_true', help="This is the 'dirName' variable")
+args = parser.parse_args()
 
 directories = sorted(os.listdir('../simulations'))
+# print(sys.stdin.read())
+# directory = args.dirName or sys.stdin.readlines()[-1] or directories[-1]
+
 directory = directories[-1]
 
 data = pd.read_csv(f'../simulations/{directory}/data.csv')
