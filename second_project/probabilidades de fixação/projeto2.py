@@ -39,9 +39,9 @@ umpire_strategy_numbers = {
 
 def fit(s1, s2, j, umpire, Qh, Qc, N):
     if umpire == 'c':
-        return Qc[s1][s1] * (j - 1) + (N - j + 1) * Qc[s1][s2]
+        return Qc[s1][s1] * (j - 1) + (N - j ) * Qc[s1][s2]
     else:
-        return Qh[s1][s1] * (j - 1) + (N - j + 1) * Qh[s1][s2]
+        return Qh[s1][s1] * (j - 1) + (N - j ) * Qh[s1][s2]
 
 
 def fit_umpires(s, ump1, j, N, UMc, UMh):
@@ -257,15 +257,48 @@ def markovMatrix(N, f, b, B, A, h, c, beta):
             np.exp(beta * (fit_um[7][j] - fit_c[3][N - j - 1])))
 
     matrix = np.zeros((8, 8))
+    def prob_fix_c(s1, s2, N):
+        prob=0
+        for i in range(1, N - 1):
+        
+            for j in range(1, i):
+                produto = np.prod((tc_minus[player_strategy_numbers[s1,s2]][0:j])/(tc_plus[player_strategy_numbers[s1,s2]][0:j]))
+            
+            prob+=produto
+        return prob
+        
+    def prob_fix_h(s1, s2, N):
+        prob=0
+        for i in range(1, N - 1):
+            for j in range(1, i):
+                produto = np.prod((th_minus[player_strategy_numbers[s1,s2]][0:j])/(th_plus[player_strategy_numbers[s1,s2]][0:j]))
+            prob+=produto
+        return prob
+    
+    def prob_fix_UM(s1, um, N):
+        prob=0
+        for i in range(1, N - 1):
+            for j in range(1, i):
+                produto = np.prod((t_minus_ump[umpire_strategy_numbers[s1,um]][0:j])/(t_plus_ump[umpire_strategy_numbers[s1,um]][0:j]))
+            prob+=produto
+        return prob
 
     for a in range(8):
         for b in range(8):
-            if 0 < a < 4 and 0 < b < 4:
-                print('NYI')
+            if 0 <= a < 4 and 0 < b < 4 and a!=b:
+                matrix[a][b]=prob_fix_h(a,b,N)
+            if 4<= a <=7 and 4<= b <= 7 and a!=b:
+                matrix[a][b]=prob_fix_c(a-4,b-4,N)
+            elif ((0 <= a < 4 and 4<= b <= 7) or (4<= a <=7 and 0 < b < 4)) and (a==b+4 or a+4==b):
+                if a<4:
+                    um='h'
+                    matrix[a][b]=prob_fix_UM(a,'h',N)
+                else:
+                    matrix[a][b]=prob_fix_UM(a-4,'c',N)
+        
+                    
 
 
-def prob_fix_c(s1, s2, N):
-    for i in range(1, N - 1):
-        for j in range(1, i):
-            # prod = np.prod(th_minus[])
-            print('NYI')
+
+
+
