@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="project2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="project2">
+				<Option output="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/project2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 project2"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="project2/fast">
+				<Option output="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/project2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 project2/fast"/>
+					<CompileFile command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -f &quot;/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/agents.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/agents.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/fitness.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/fitness.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/players/Player.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/players/Player.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/players/payoffsPlayer.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/players/payoffsPlayer.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/umpires/Umpire.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/umpires/Umpire.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/umpires/payoffsUmpire.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/agents/umpires/payoffsUmpire.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/main.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/counts.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/counts.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/imitationProbabilities.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/imitationProbabilities.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/logs.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/logs.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/other.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/other.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/random.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/random.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/utils.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/utils/utils.h">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/pedrorio/Code/pedrorio/tecnico/complex_network_science/second_project/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
