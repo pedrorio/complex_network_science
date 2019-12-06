@@ -2,7 +2,6 @@
 // Created by Pedro Rio on 30/11/2019.
 //
 
-#include <cmath>
 #include "imitationProbabilities.h"
 
 float imitationProbability(float imitationStrength, float agentOneFitness, float agentTwoFitness) {

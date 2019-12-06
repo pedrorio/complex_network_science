@@ -7,6 +7,8 @@
 
 
 #include <vector>
+#include <algorithm>
+
 #include "../agents/players/Player.h"
 #include "../agents/umpires/Umpire.h"
 #include "./random.h"
