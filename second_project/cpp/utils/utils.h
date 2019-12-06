@@ -6,6 +6,7 @@
 #define PROJECT2_UTILS_H
 
 #include <map>
+
 #include "./random.h"
 #include "../agents/players/Player.h"
 #include "../agents/umpires/Umpire.h"

@@ -55,20 +55,24 @@ void printHeader(std::ofstream &outfile) {
 void printParamHeaders(std::ofstream &outfile) {
 
     std::cout << "b" << "," << "c" << "," << "f" << "," << "h" << "," << "a" << "," << "B" << ","
-              << "playerExplorationProbability" << "," << "umpireExplorationProbability" << "," << "imitationStrength"
+              << "playerExplorationProbability" << "," << "umpireExplorationProbability" << ","
+              << "imitationStrength" << "," << "p" << "," << "T"
               << std::endl;
     outfile << "b" << "," << "c" << "," << "f" << "," << "h" << "," << "a" << "," << "B" << ","
-            << "playerExplorationProbability" << "," << "umpireExplorationProbability" << "," << "imitationStrength"
+            << "playerExplorationProbability" << "," << "umpireExplorationProbability" << "," << "imitationStrength" ","
+            << "p" << "," << "T"
             << std::endl;
 }
 
-void printParams(std::ofstream &outfile, float b, float c, float f, float h, float a, float B,
+void printParams(std::ofstream &outfile, float b, float c, float f, float h, float A, float B,
                  float playerExplorationProbability, float umpireExplorationProbability,
-                 float imitationStrength) {
-    std::cout << b << "," << c << "," << f << "," << h << "," << a << "," << B << ","
-              << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength
+                 float imitationStrength, float p, float T) {
+    std::cout << b << "," << c << "," << f << "," << h << "," << A << "," << B << ","
+              << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength << ", "
+              << p << "," << T
               << std::endl;
-    outfile << b << "," << c << "," << f << "," << h << "," << a << "," << B << ","
-            << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength
+    outfile << b << "," << c << "," << f << "," << h << "," << A << "," << B << ","
+            << playerExplorationProbability << "," << umpireExplorationProbability << "," << imitationStrength << ", "
+            << p << "," << T
             << std::endl;
 }

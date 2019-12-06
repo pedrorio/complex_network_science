@@ -9,6 +9,9 @@
 #include <cmath>
 #include <ctime>
 #include <random>
+#include <iostream>
+#include <algorithm>
+
 #include "../agents/players/Player.h"
 #include "../agents/umpires/Umpire.h"
 #include "../agents/agents.h"

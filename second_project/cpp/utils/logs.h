@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+
 #include "utils.h"
 #include "../agents/players/Player.h"
 #include "../agents/umpires/Umpire.h"
@@ -20,9 +21,9 @@ void printFrequencies(std::ofstream &outfile,
 
 void printHeader(std::ofstream &outfile);
 
-void printParams(std::ofstream &outfile, float b, float c, float f, float h, float a, float B,
+void printParams(std::ofstream &outfile, float b, float c, float f, float h, float A, float B,
                  float playerExplorationProbability, float umpireExplorationProbability,
-                 float imitationStrength);
+                 float imitationStrength, float p, float T);
 
 void printParamHeaders(std::ofstream &outfile);
 
