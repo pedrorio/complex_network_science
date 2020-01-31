@@ -7,4 +7,5 @@
 [IST](https://tecnico.ulisboa.pt/en/)
 
 [First Project](https://github.com/pedrorio/complex_network_science/tree/master/first_project) 20.0/20.0
+
 [Second Project](https://github.com/pedrorio/complex_network_science/tree/master/second_project) 18.1/20.0
